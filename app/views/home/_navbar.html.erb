@@ -8,19 +8,17 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">carbnb</a>
+      <%= link_to "carbnb", root_url, class:"navbar-brand" %>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navbar-collapse-1">
 
       <ul class="nav navbar-nav navbar-right">
-
         <% if current_user %>
           <%= render "user_dropdown" %>
         <% else %>
           <li><a href="#">Sign Up</a></li>
-          <li><a href="#">Log In</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#sign-in-modal">Log In</a></li>
         <% end %>
         <%= render "help_dropdown" %>
         <li><a href="#">List Your Ride</a></li>
