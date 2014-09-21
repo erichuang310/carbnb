@@ -1,10 +1,4 @@
-<% submit_text = controller_name == 'sessions' ? 'Log In' : 'Sign Up' %>
-<% form_url = controller_name == 'sessions' ? session_url : users_url %>
-
 <%= form_for(@user, url: form_url) do |f| %>
-
-
-
   <% if controller_name == 'users' %>
 
     <div class="row row-2"></div>
@@ -36,4 +30,4 @@
 
 <% end %>
 
-  <div class="row row-2"></div>
+<div class="row row-2"></div>

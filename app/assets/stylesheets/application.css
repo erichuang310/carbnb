@@ -57,15 +57,15 @@ form#home-search .form-control {
   padding-top: 15px;
   background-color: transparent;
   background: transparent;
-}
-*/
+}*/
+
 .navbar-transparent a {
   color: black;
 }
-/*
+
 .nav .open>a, .nav .open>a:hover, .nav .open>a:focus, .nav li a:hover, .nav li a:hover, .nav li a:focus {
   background-color:transparent;
-}*/
+}
 .navbar-brand {
   font-size: 22px;
 }
@@ -97,18 +97,15 @@ body {
   margin: 0px;
   padding: 0px;
 }
-
 .row-2 {
   margin-top: 5px;
   margin-bottom: 5px;
   width: 100%;
 }
-
 .row-4 {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-
 .row-6 {
   margin-top: 15px;
   margin-bottom: 15px;

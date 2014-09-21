@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       session_params[:email],
       session_params[:password]
     )
-    
+
     if @user
       login!(@user)
       redirect_to root_url
@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
 
   def destroy
     logout!
-    redirect_to new_session_url
+    redirect_to root_url
   end
 
   private

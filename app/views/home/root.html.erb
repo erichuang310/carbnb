@@ -1,79 +1,76 @@
-	<div class="row clearfix">
-		<div id="search">
-
-				<%= render "navbar" %>
-				<%= render "search_form" %>
-		</div>
+<div class="row clearfix">
+	<div id="search">
+		<%= render "navbar" %>
+		<%= render "search_form" %>
 	</div>
+</div>
 
-	<div class="row clearfix">
-		<div class="col-xs-12 column text-center">
-			<h2>
-				Vroom vroom
-			</h2>
-			<p>Discover automotives that enthusiasts <font color="red">love</font>.</p>
-		</div>
+<div class="row clearfix">
+	<div class="col-xs-12 column text-center">
+		<h2>
+			Vroom vroom
+		</h2>
+		<p>Discover automotives that enthusiasts <font color="red">love</font>.</p>
 	</div>
+</div>
 
 
-	<div class="row row-6"></div>
-	<div class="row clearfix col-xs-10 col-xs-offset-1">
-		<div class="col-xs-4 column">
-			<%= image_tag "g63_front.jpg", class: "img-responsive" %>
-		</div>
-		<div class="col-xs-4 column">
-			<%= image_tag "g63_front.jpg", class: "img-responsive" %>
-		</div>
-		<div class="col-xs-4 column">
-			<%= image_tag "g63_front.jpg", class: "img-responsive" %>
-		</div>
+<div class="row row-6"></div>
+<div class="row clearfix col-xs-10 col-xs-offset-1">
+	<div class="col-xs-4 column">
+		<%= image_tag "g63_front.jpg", class: "img-responsive" %>
 	</div>
-
-
-	<div class="row row-6"></div>
-	<div class="row row-6"></div>
-	<div class="row clearfix col-xs-10 col-xs-offset-1">
-		<div class="col-xs-4 column">
-			<%= image_tag "g63_front.jpg", class: "img-responsive" %>
-		</div>
-		<div class="col-xs-4 column">
-			<%= image_tag "g63_front.jpg", class: "img-responsive" %>
-		</div>
-		<div class="col-xs-4 column">
-			<%= image_tag "g63_front.jpg", class: "img-responsive" %>
-		</div>
+	<div class="col-xs-4 column">
+		<%= image_tag "g63_front.jpg", class: "img-responsive" %>
 	</div>
-
-
-	<div class="row row-6"></div>
-	<div class="row row-6"></div>
-	<div class="row clearfix col-xs-10 col-xs-offset-1">
-		<div class="col-xs-4 column">
-			<%= image_tag "g63_front.jpg", class: "img-responsive" %>
-		</div>
-		<div class="col-xs-4 column">
-			<%= image_tag "g63_front.jpg", class: "img-responsive" %>
-		</div>
-		<div class="col-xs-4 column">
-			<%= image_tag "g63_front.jpg", class: "img-responsive" %>
-		</div>
+	<div class="col-xs-4 column">
+		<%= image_tag "g63_front.jpg", class: "img-responsive" %>
 	</div>
+</div>
 
 
-	<div class="row row-6"></div>
-
-	<div class="row clearfix">
-		<div class="col-xs-12 column text-center">
-			<h2>
-				Our Community
-			</h2>
-			<p>Coming soon</p>
-		</div>
+<div class="row row-6"></div>
+<div class="row row-6"></div>
+<div class="row clearfix col-xs-10 col-xs-offset-1">
+	<div class="col-xs-4 column">
+		<%= image_tag "g63_front.jpg", class: "img-responsive" %>
 	</div>
+	<div class="col-xs-4 column">
+		<%= image_tag "g63_front.jpg", class: "img-responsive" %>
+	</div>
+	<div class="col-xs-4 column">
+		<%= image_tag "g63_front.jpg", class: "img-responsive" %>
+	</div>
+</div>
 
-	<div class="row row-6"></div>
-	<%= render "footer" %>
 
+<div class="row row-6"></div>
+<div class="row row-6"></div>
+<div class="row clearfix col-xs-10 col-xs-offset-1">
+	<div class="col-xs-4 column">
+		<%= image_tag "g63_front.jpg", class: "img-responsive" %>
+	</div>
+	<div class="col-xs-4 column">
+		<%= image_tag "g63_front.jpg", class: "img-responsive" %>
+	</div>
+	<div class="col-xs-4 column">
+		<%= image_tag "g63_front.jpg", class: "img-responsive" %>
+	</div>
+</div>
+
+
+<div class="row row-6"></div>
+<div class="row clearfix">
+	<div class="col-xs-12 column text-center">
+		<h2>
+			Our Community
+		</h2>
+		<p>Coming soon</p>
+	</div>
+</div>
+
+<div class="row row-6"></div>
+<%= render "footer" %>
 
 <div class="modal fade" id="sign-in-modal">
   <div class="modal-dialog">
@@ -90,7 +87,7 @@
       </div>
 
       <div class="modal-body">
-        <%= render "authentication/form" %>
+        <%= render "authentication/form", submit_text: "Log In", form_url: session_url %>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
