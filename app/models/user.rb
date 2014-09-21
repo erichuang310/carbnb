@@ -40,6 +40,15 @@ class User < ActiveRecord::Base
     user.email.downcase!
   end
 
+  # Associations
+
+  has_many(
+    :cars,
+    class_name: "car",
+    foreign_key: "owner_id",
+    primary_key: "id"
+  )
+
   #
 
   def name
