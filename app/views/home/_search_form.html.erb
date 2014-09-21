@@ -1,0 +1,14 @@
+<div class="row">
+  <form>
+    <%= text_field_tag "SDSDS", nil, class: "col-xs-3", placeholder: "Wat do you want to drive?" %>
+    <%= text_field_tag "SDSDS", nil, class: "col-xs-1", placeholder: "Start Date" %>
+    <%= text_field_tag "SDSDS", nil, class: "col-xs-1", placeholder: "End Date" %>
+
+    <%= select_tag "num_of_seats",
+      options_for_select(["2 Seats", "4 Seats", "5 Seats", "5+ Seats"]),
+      class: "col-xs-1",
+      placeholder: "2 Seater" %>
+
+    <%= submit_tag "Search" %>
+  </form>
+</div>
