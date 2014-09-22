@@ -1,0 +1,12 @@
+$("#signup-form").on("ajax:success", function(e, data, status, xhr) {
+  $("#signup-modal").modal("hide");
+  $("nav.navbar").html("<%= escape_javascript(render(:partial => 'home/navbar')) %>");
+});
+
+$("#signup-form").on("ajax:error", function(e, xhr, status, error) {
+  $("#signup-modal .modal-body").html("                                     \
+    <%= escape_javascript(                                                  \
+      render partial: 'authentication/form', locals: { type: 'signup'}      \
+    ) %>                                                                    \
+  ");
+});

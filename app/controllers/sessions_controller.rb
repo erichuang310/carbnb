@@ -11,11 +11,10 @@ class SessionsController < ApplicationController
 
     if @user
       login!(@user)
-      redirect_to root_url
+      render action: "create", status: :ok
     else
-      @user = User.new(email: session_params[:email])
-      flash.now[:error] = ["Failed to log in. Please try again."]
-      render :new
+      flash.now[:error] = ["Invalid login credentials. Please try again."]
+      render action: "create", status: :unprocessable_entity
     end
   end
 

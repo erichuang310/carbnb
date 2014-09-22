@@ -1,9 +1,11 @@
+<% @user ||= User.new %>
 <% form_url = type == "signup" ? users_url : session_url %>
 <% submit_text = type == "signup" ? "Sign Up" : "Log In" %>
-<%= form_for(@user, url: form_url, remote: true) do |f| %>
+
+<%= render "layouts/flash_messages" %>
+<%= form_for(@user, url: form_url, html: {id: type + "-form"}, remote: true) do |f| %>
 
   <% if type == 'signup' %>
-    <div class="row row-2"></div>
     <%= f.text_field :first_name,
       placeholder: "First Name",
       class: "form-control" %>
@@ -12,9 +14,10 @@
     <%= f.text_field :last_name,
       placeholder: "Last Name",
       class: "form-control" %>
+
+    <div class="row row-2"></div>
   <% end %>
 
-  <div class="row row-2"></div>
   <%= f.text_field :email, placeholder: "Email Address", class: "form-control" %>
   <div class="row row-2"></div>
   <%= f.password_field :password, placeholder: "Password",  class: "form-control" %>
@@ -26,9 +29,9 @@
       class: "form-control" %>
   <% end %>
 
-  <div class="row row-4"></div>
-  <%= submit_tag submit_text, class: "width-35 pull-right btn btn-primary" %>
+  <div class="row row-2"></div>
+  <%= submit_tag submit_text, class: "pull-right btn btn-primary form-control" %>
 
 <% end %>
 
-<div class="row row-2"></div>
+  <div class="row"></div>

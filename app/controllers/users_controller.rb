@@ -6,14 +6,13 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
     if @user.save
       login!(@user)
-      redirect_to root_url
+      render action: "create", status: :ok
     else
       flash.now[:error] = @user.errors.full_messages
-      render :new
-    end
+      render action: "create", status: :unprocessable_entity
+    end  
   end
 
   def edit

@@ -18,6 +18,20 @@
 #search_start_date:hover, #search_end_date:hover {
   cursor: default;
 }*/
+
+.modal-dialog {
+  margin-top: 200px;
+}
+.modal-content {
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 2px;
+  background-color:rgba(250, 250, 250, 1);
+}
+.form-control {
+  border-radius: 2px;
+}
 .ui-datepicker {
   width:150px;
   background: #FFFFFF;
