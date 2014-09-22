@@ -1,6 +1,8 @@
-<%= form_for(@user, url: form_url) do |f| %>
-  <% if controller_name == 'users' %>
+<% form_url = type == "signup" ? users_url : session_url %>
+<% submit_text = type == "signup" ? "Sign Up" : "Log In" %>
+<%= form_for(@user, url: form_url, remote: true) do |f| %>
 
+  <% if type == 'signup' %>
     <div class="row row-2"></div>
     <%= f.text_field :first_name,
       placeholder: "First Name",
@@ -17,8 +19,7 @@
   <div class="row row-2"></div>
   <%= f.password_field :password, placeholder: "Password",  class: "form-control" %>
 
-
-  <% if controller_name == 'users' %>
+  <% if type == 'signup' %>
     <div class="row row-2"></div>
     <%= f.password_field :password_confirmation,
       placeholder: "Confirm Password",

@@ -72,7 +72,7 @@
 <div class="row row-6"></div>
 <%= render "footer" %>
 
-<div class="modal fade" id="sign-in-modal">
+<div class="modal fade" id="login-modal">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -87,8 +87,29 @@
       </div>
 
       <div class="modal-body">
-        <%= render "authentication/form", submit_text: "Log In", form_url: session_url %>
+				<%= render "authentication/form", type: "login" %>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="signup-modal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button
+					type="button"
+					class="close"
+					data-dismiss="modal">
+					<span aria-hidden="true">&times;</span>
+					<span class="sr-only"></span>
+				</button>
+				<h4 class="modal-title">Log In</h4>
+			</div>
+
+			<div class="modal-body">
+				<%= render "authentication/form", type: "signup" %>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
