@@ -1,0 +1,39 @@
+<% submit_text = controller_name == 'sessions' ? 'Log In' : 'Sign Up' %>
+<% form_url = controller_name == 'sessions' ? session_url : users_url %>
+
+<%= form_for(@user, url: form_url) do |f| %>
+
+
+
+  <% if controller_name == 'users' %>
+
+    <div class="row row-2"></div>
+    <%= f.text_field :first_name,
+      placeholder: "First Name",
+      class: "form-control" %>
+
+    <div class="row row-2"></div>
+    <%= f.text_field :last_name,
+      placeholder: "Last Name",
+      class: "form-control" %>
+  <% end %>
+
+  <div class="row row-2"></div>
+  <%= f.text_field :email, placeholder: "Email Address", class: "form-control" %>
+  <div class="row row-2"></div>
+  <%= f.password_field :password, placeholder: "Password",  class: "form-control" %>
+
+
+  <% if controller_name == 'users' %>
+    <div class="row row-2"></div>
+    <%= f.password_field :password_confirmation,
+      placeholder: "Confirm Password",
+      class: "form-control" %>
+  <% end %>
+
+  <div class="row row-4"></div>
+  <%= submit_tag submit_text, class: "width-35 pull-right btn btn-primary" %>
+
+<% end %>
+
+  <div class="row row-2"></div>

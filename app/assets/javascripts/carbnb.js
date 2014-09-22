@@ -1,4 +1,4 @@
-window.Carbnb = {
+window.Carbnd = {
   Models: {},
   Collections: {},
   Views: {},
@@ -9,5 +9,5 @@ window.Carbnb = {
 };
 
 $(document).ready(function(){
-  Carbnb.initialize();
+  Carbnd.initialize();
 });
