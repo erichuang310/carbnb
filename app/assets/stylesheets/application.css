@@ -19,6 +19,13 @@
   cursor: default;
 }*/
 
+div#banner {
+  width: 100%;
+  color: white;
+  font-size: 50px;
+  top: 35%;
+  position: absolute;
+}
 .modal-dialog {
   margin-top: 200px;
 }

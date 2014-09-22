@@ -12,5 +12,20 @@ $(function () {
   $('#signup-modal').on('hidden.bs.modal', function (e) {
     $(".modal-body #flash-message").empty();
   });
+
+      $("#banner").typed({
+        strings: [
+          "BMW M3",
+          "Honda Odyssey",
+          "Nissan 370Z",
+          "Lexus IS250",
+          "Toyota Camry",
+          "Tesla Model S"
+        ],
+        typeSpeed: 120,
+        backSpeed: 70,
+        loop: true
+      });
+
 });
 `
