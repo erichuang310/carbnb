@@ -1,0 +1,2 @@
+module CarListingsHelper
+end

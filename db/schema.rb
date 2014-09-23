@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140923181026) do
+ActiveRecord::Schema.define(version: 20140923204329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,12 +42,13 @@ ActiveRecord::Schema.define(version: 20140923181026) do
   end
 
   create_table "requests", force: true do |t|
-    t.date     "start_date",     null: false
-    t.date     "end_date",       null: false
-    t.integer  "car_listing_id", null: false
-    t.integer  "leasee_id",      null: false
+    t.date     "start_date",                         null: false
+    t.date     "end_date",                           null: false
+    t.integer  "car_listing_id",                     null: false
+    t.integer  "leasee_id",                          null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "status",         default: "Pending", null: false
   end
 
   add_index "requests", ["car_listing_id", "leasee_id"], name: "index_requests_on_car_listing_id_and_leasee_id", unique: true, using: :btree

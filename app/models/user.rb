@@ -30,7 +30,9 @@ class User < ActiveRecord::Base
             presence: true,
             uniqueness: true
 
-  validates :first_name, :last_name, presence: true
+  validates :first_name,
+            :last_name,
+            presence: true
 
   after_initialize :ensure_session_token
 

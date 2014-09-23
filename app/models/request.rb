@@ -16,9 +16,13 @@ class Request < ActiveRecord::Base
             :end_date,
             :car_listing,
             :leasee,
+            :status,
             presence: true
+
   validate  :start_date_in_future
+
   validate  :start_date_before_end_date
+  
   validate  :leaser_is_not_leasee
 
   belongs_to(

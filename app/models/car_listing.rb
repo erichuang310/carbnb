@@ -37,10 +37,10 @@ class CarListing < ActiveRecord::Base
   has_many(
     :requests,
     class_name: "Request",
-    foreign_key: :car_id,
+    foreign_key: :car_listing_id,
     primary_key: :id
   )
-  
+
   has_one(
     :car,
     class_name: "Car",
