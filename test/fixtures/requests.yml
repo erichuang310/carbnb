@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: requests
+#
+#  id             :integer          not null, primary key
+#  start_date     :date             not null
+#  end_date       :date             not null
+#  car_listing_id :integer          not null
+#  leasee_id      :integer          not null
+#  created_at     :datetime
+#  updated_at     :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_date: 2014-09-23
+  end_date: 2014-09-23
+  car_listing_id: 1
+  leasee_id: 1
+
+two:
+  start_date: 2014-09-23
+  end_date: 2014-09-23
+  car_listing_id: 1
+  leasee_id: 1

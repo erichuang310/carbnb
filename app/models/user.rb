@@ -16,19 +16,19 @@ class User < ActiveRecord::Base
   attr_reader :password
 
   validates :email,
-    presence: true,
-    uniqueness: true
+            presence: true,
+            uniqueness: true
 
   validates :password,
-    confirmation: { value: true, message: "does not match" },
-    length: { minimum: 6, allow_nil: true, message: "is too short (minimum 6)" }
+            confirmation: { value: true, message: "does not match" },
+            length: { minimum: 6, allow_nil: true, message: "is too short (minimum 6)" }
 
   validates :password_digest,
-    presence: true
+            presence: true
 
   validates :session_token,
-    presence: true,
-    uniqueness: true
+            presence: true,
+            uniqueness: true
 
   validates :first_name, :last_name, presence: true
 
@@ -43,10 +43,17 @@ class User < ActiveRecord::Base
   # Associations
 
   has_many(
-    :cars,
-    class_name: "car",
-    foreign_key: "owner_id",
-    primary_key: "id"
+    :requests,
+    class_name: "Request",
+    foreign_key: :leasee_id,
+    primary_key: :id
+  )
+
+  has_many(
+    :car_listings,
+    class_name: "CarListing",
+    foreign_key: :leaser_id,
+    primary_key: :id
   )
 
   #

@@ -2,13 +2,16 @@
 #
 # Table name: cars
 #
-#  id         :integer          not null, primary key
-#  year       :integer          not null
-#  make       :string(255)      not null
-#  model      :string(255)      not null
-#  trim       :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  id                   :integer          not null, primary key
+#  year                 :integer          not null
+#  make                 :string(255)      not null
+#  nameplate            :string(255)      not null
+#  trim                 :string(255)
+#  color                :string(255)      not null
+#  car_listing_id       :integer          not null
+#  created_at           :datetime
+#  updated_at           :datetime
+#  license_plate_number :string(255)      not null
 #
 
 require 'test_helper'

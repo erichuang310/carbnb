@@ -11,20 +11,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140921195121) do
+ActiveRecord::Schema.define(version: 20140923181026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "cars", force: true do |t|
-    t.integer  "year",       null: false
-    t.string   "make",       null: false
-    t.string   "model",      null: false
-    t.string   "trim"
+  create_table "car_listings", force: true do |t|
+    t.integer  "leaser_id",                   null: false
+    t.text     "description",                 null: false
+    t.string   "title",                       null: false
+    t.integer  "price",                       null: false
+    t.integer  "deposit",                     null: false
+    t.text     "rules",                       null: false
+    t.string   "cancellation",                null: false
+    t.boolean  "active",       default: true, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "owner_id"
   end
+
+  create_table "cars", force: true do |t|
+    t.integer  "year",                 null: false
+    t.string   "make",                 null: false
+    t.string   "nameplate",            null: false
+    t.string   "trim"
+    t.string   "color",                null: false
+    t.integer  "car_listing_id",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "license_plate_number", null: false
+  end
+
+  create_table "requests", force: true do |t|
+    t.date     "start_date",     null: false
+    t.date     "end_date",       null: false
+    t.integer  "car_listing_id", null: false
+    t.integer  "leasee_id",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "requests", ["car_listing_id", "leasee_id"], name: "index_requests_on_car_listing_id_and_leasee_id", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",           null: false
