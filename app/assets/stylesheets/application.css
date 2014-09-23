@@ -19,6 +19,10 @@
   cursor: default;
 }*/
 
+
+
+
+
 div#banner {
   width: 100%;
   color: white;
@@ -70,6 +74,8 @@ form#home-search {
 }
 form#home-search .form-control {
   height: 45px;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
   border-radius: 0px;
   border: 1px solid darkGrey;
 }
