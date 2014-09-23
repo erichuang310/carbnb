@@ -7,10 +7,14 @@
 $(function () {
   $('#login-modal').on('hidden.bs.modal', function (e) {
     $(".modal-body #flash-message").empty();
+    $(".modal-body input[type=text]").val("");
+    $(".modal-body input[type=password]").val("");
   });
 
   $('#signup-modal').on('hidden.bs.modal', function (e) {
     $(".modal-body #flash-message").empty();
+    $(".modal-body input[type=text]").val("");
+    $(".modal-body input[type=password]").val("");
   });
 
       $("#banner").typed({
