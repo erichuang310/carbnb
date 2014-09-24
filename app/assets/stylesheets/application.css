@@ -15,6 +15,10 @@
  *= require_self
  */
 
+#flash-message{
+  text-align:left;
+}
+
 .form-control {
   border-radius: 2px;
 }
@@ -30,4 +34,59 @@
 .row-6 {
   margin-top: 15px;
   margin-bottom: 15px;
+}
+
+header#home {
+  position: relative;
+  text-align: center;
+  min-height: 600px;
+  background-image: url(/assets/bmw_m3_front.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+div#home-search {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color:rgba(0, 0, 0, 0.5);
+}
+div#home-search .form-control {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  height: 45px;
+  border-radius: 0px;
+  border: 1px solid darkGrey;
+}
+
+section#message {
+  margin-top: 15px;
+}
+/*
+section#discoveries {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}*/
+
+.discovery-row {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+
+footer#home {
+  height: 280px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-image: url(/assets/pavement.jpg);
+  background-position: center;
+  color: white;
+}
+footer#home a {
+  color: white;
+}
+footer#home ul li {
+  list-style-type: none;
 }

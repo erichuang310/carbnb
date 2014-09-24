@@ -15,7 +15,7 @@ Jbuilder.new do
   json.car @car_listing.car
 
   if (@include_requests)
-    json.requests @car_listing.requests do |request|
+    json.i @car_listing.requests do |request|
       json.(
         request,
         :id,

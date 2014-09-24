@@ -12,15 +12,17 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.serializejson.min
 //= require bootstrap-datepicker
 //= require bootstrap.min
 //= require turbolinks
 //= require underscore
 //= require backbone
 //= require carbnd
-//= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
+//= require_tree ./utils
+//= require_tree ../templates
 //= require_tree ./views
 //= require_tree ./routers
 //= require typed

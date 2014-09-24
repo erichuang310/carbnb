@@ -1,15 +1,20 @@
 Carbnd.Routers.MainRouter = Backbone.Router.extend({
   routes: {
-    "signup": "signup"
+    "": "homeIndex"
   },
 
-  initialize: function ($el) {
-    this.$el = $el;
+  initialize: function (options) {
+    this.$rootEl = options.$rootEl;
   },
 
-  swapView: function (view) {
+  homeIndex: function () {
+    var homeIndexView = new Carbnd.Views.HomeIndex();
+    this._swapView(homeIndexView);
+  },
+
+  _swapView: function (view) {
     this._currentView && this._currentView.remove();
     this._currentView = view;
-    this.$el.html(this._currentView.render().$el)
+    this.$rootEl.html(this._currentView.render().$el)
   }
 });

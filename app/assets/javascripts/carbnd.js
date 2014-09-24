@@ -4,11 +4,11 @@ window.Carbnd = {
   Views: {},
   Routers: {},
   initialize: function() {
-    //new Carbnd.Routers.MainRouter ($("body"));
-    //Backbone.history.start();
+    new Carbnd.Routers.MainRouter ({ $rootEl: $("body") });
+    Backbone.history.start();
   }
 };
 
 $(document).ready(function(){
-  //Carbnd.initialize();
+  Carbnd.initialize();
 });

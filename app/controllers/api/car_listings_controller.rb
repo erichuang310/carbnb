@@ -5,7 +5,7 @@ module Api
       @car_listing = CarListing.new(car_listing_params)
 
       if @car_listing.save
-        render json: @car_listing
+        render json: @car_listing, status: :created
       else
         render json: @car_listing.errors.full_messages, status: :unprocessable_entity
       end
@@ -18,7 +18,7 @@ module Api
 
     def show
       @car_listing = CarListing.includes(:car, :requests).find(params[:id])
-      @include_requests =  @car_listing.leaser.id == current_user.id
+      @include_requests = @car_listing.leaser.id == current_user.id
 
       if @car_listing
         render :show
