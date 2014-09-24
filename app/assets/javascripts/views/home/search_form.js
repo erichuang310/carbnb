@@ -18,5 +18,4 @@ Carbnd.Views.HomeSearchForm = Backbone.CompositeView.extend({
 
     return this;
   }
-
 });

@@ -20,7 +20,6 @@ class Car < ActiveRecord::Base
             :color,
             :car_listing,
             :nameplate,
-            :license_plate_number,
             presence: true
 
   belongs_to(

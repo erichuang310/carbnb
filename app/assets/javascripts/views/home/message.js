@@ -14,5 +14,4 @@ Carbnd.Views.HomeMessage = Backbone.CompositeView.extend({
 
     return this;
   }
-
 });

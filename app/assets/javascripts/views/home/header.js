@@ -51,5 +51,4 @@ Carbnd.Views.HomeHeader = Backbone.CompositeView.extend({
 
     return this;
   }
-
 });

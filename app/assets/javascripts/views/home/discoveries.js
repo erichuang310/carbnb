@@ -10,5 +10,4 @@ Carbnd.Views.HomeDiscoveries = Backbone.CompositeView.extend({
 
     return this;
   }
-
 });

@@ -19,26 +19,37 @@ Carbnd.Views.AuthModal = Backbone.CompositeView.extend({
   handleFormSubmission: function (event) {
     event.preventDefault();
     var userParams = $(event.target).serializeJSON();
-    var user = new Carbnd.Models.User(userParams);
 
     var that = this;
-    if (this.type === "login") {
+    if (this.type === "signup") {
+      var user = new Carbnd.Models.User(userParams);
       user.save({}, {
-        success: function (model, resp, options) {
-          that.hide();
-        },
-        error: function (model, resp, options) {
-          var flashMessageView = new Carbnd.Views.FlashMessage({
-            messages: resp.responseJSON
-          })
-          that.$("#flash-message").html(flashMessageView.render().$el);
-          that.$("input[type=password]").val("");
-        }
+        success: function (model, resp) { that.hide(); },
+        error: function (model, resp) { that.addFlashErrors(resp.responseJSON); }
       });
-    } else {
-      //TODO
+    } else if (this.type === "login") {
+      $.ajax({
+        url: "/api/session",
+        type: "POST",
+        data: userParams,
+        success: function (model, resp) { that.hide(); },
+        error: function (model, resp) { that.addFlashErrors(resp.responseJSON); }
+      });
     }
 
+  },
+
+  addFlashErrors: function (errors) {
+    var flashMessageView = new Carbnd.Views.FlashMessage({ messages: errors })
+    this.$("#flash-message").html(flashMessageView.render().$el);
+    this.$("input[type=password]").val("");
+  },
+
+  hide: function () {
+    this.$el.modal("hide");
+    this.$("#flash-message").empty();
+    this.$("input[type=text]").val("");
+    this.$("input[type=password]").val("");
   },
 
   render: function () {
@@ -47,15 +58,5 @@ Carbnd.Views.AuthModal = Backbone.CompositeView.extend({
     this.$el.html(renderedContent);
 
     return this;
-  },
-
-  hide: function () {
-    this.$el.modal("hide");
-    this.$("#flash-message").empty();
-    this.$("input[type=text]").val("");
-    this.$("input[type=password]").val("");
   }
-
-
-
 });

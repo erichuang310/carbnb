@@ -10,5 +10,4 @@ Carbnd.Views.HomeFooter = Backbone.CompositeView.extend({
 
     return this;
   }
-
 });

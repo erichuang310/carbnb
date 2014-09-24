@@ -26,4 +26,6 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require typed
+//= require edmunds.api.sdk
+//= require query-string
 //= require_tree .
