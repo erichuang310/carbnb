@@ -2,7 +2,7 @@ module Api
   class CarListingsController < ApiController
 
     def create
-      @car_listing = CarListing.new(car_listing_params)
+      @car_listing = current_user.car_listings.new(car_listing_params)
 
       if @car_listing.save
         render json: @car_listing, status: :created
@@ -36,16 +36,17 @@ module Api
     private
     def car_listing_params
       params.require(:car_listing).permit(
-        :leaser_id,
-        :description,
         :title,
-        :price,
+        :description,
+        :rate,
         :deposit,
-        :rules,
         :cancellation,
-        :active
+        :active,
+        :car_year,
+        :car_make,
+        :car_model,
+        :car_color
       )
     end
-
   end
 end

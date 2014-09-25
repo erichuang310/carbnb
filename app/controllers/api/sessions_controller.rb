@@ -8,7 +8,7 @@ module Api
 
       if @user
         login!(@user)
-        render json: @user, status: :ok
+        render json: @user
       else
         flash.now[:error] = ["Invalid login credentials. Please try again."]
         render json:

@@ -75,8 +75,7 @@ section#discoveries {
   margin-bottom: 30px;
 }
 
-
-footer#home {
+footer {
   height: 280px;
   padding-top: 40px;
   padding-bottom: 40px;
@@ -84,9 +83,19 @@ footer#home {
   background-position: center;
   color: white;
 }
-footer#home a {
+footer {
   color: white;
 }
-footer#home ul li {
+footer ul li {
   list-style-type: none;
+}
+
+#new-car-listing {
+  /*padding-top: 10px;*/
+  padding-bottom: 30px;
+  background-color: #E3E3E3;
+}
+section {
+  padding-top:30px;
+    padding-bottom:30px;
 }

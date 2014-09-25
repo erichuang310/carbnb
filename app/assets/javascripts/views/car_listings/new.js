@@ -7,6 +7,7 @@ Carbnd.Views.CarListingsNew = Backbone.CompositeView.extend({
     this.body = "Carbnd lets you make money sharing out your ride."
     this.addPanel();
     this.addForm();
+    this.addFooter();
   },
 
   addPanel: function () {
@@ -19,7 +20,12 @@ Carbnd.Views.CarListingsNew = Backbone.CompositeView.extend({
 
   addForm: function () {
     var formView = new Carbnd.Views.CarListingsForm();
-    this.addSubview("form", formView);
+    this.addSubview("#new-car-listing", formView);
+  },
+
+  addFooter: function () {
+    var footerView = new Carbnd.Views.LayoutsFooter({ id: "car-listing-new" });
+    this.addSubview("footer", footerView);
   },
 
   render: function () {

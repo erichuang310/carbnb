@@ -33,14 +33,14 @@ Carbnd.Views.AuthModal = Backbone.CompositeView.extend({
         type: "POST",
         data: userParams,
         success: function (model, resp) { that.hide(); },
-        error: function (model, resp) { that.addFlashErrors(resp.responseJSON); }
+        error: function (model, resp) { debugger; that.addFlashErrors([model.responseJSON.message]); }
       });
     }
 
   },
 
   addFlashErrors: function (errors) {
-    var flashMessageView = new Carbnd.Views.FlashMessage({ messages: errors })
+    var flashMessageView = new Carbnd.Views.LayoutsFlashMessage({ messages: errors })
     this.$("#flash-message").html(flashMessageView.render().$el);
     this.$("input[type=password]").val("");
   },

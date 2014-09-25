@@ -1,38 +1,146 @@
-<form>
-  <select
-      class="form-control"
-      id="car-year"
-      name="car[year]">
-      <option value="2014">2014</option>
-      <option value="2015">2015</option>
-  </select>
+<div class="col-xs-8 col-xs-offset-2">
 
-  <div class="row row-2"></div>
+  <div id="flash-message"></div>
+  <form class="form-horizontal">
+    <h2>Listing Information</h2>
+    <hr>
 
-  <select
-    id="car-makes"
-    class="form-control"
-    name="car[make]"
-    placeholder="Make">
-  </select>
+    <div class="form-group">
+      <label for="car-listing-title" class="col-sm-2 control-label">Title</label>
+      <div class="col-sm-10">
+        <input
+          type="text"
+          id="car-listing-title"
+          class="form-control"
+          name="car_listing[title]"
+          placeholder="Title">
+      </div>
+    </div>
 
-  <div class="row row-2"></div>
+    <div class="row row-2"></div>
 
-  <select
-    id="car-models"
-    class="form-control"
-    name="car[model]"
-    placeholder="Model">
-  </select>
+    <div class="form-group">
+      <label for="car-listing-description" class="col-sm-2 control-label">Description</label>
+      <div class="col-sm-10">
+        <textarea
+          id="car-listing-description"
+          class="form-control"
+          name="car_listing[description]"
+          placeholder="Description"
+        ></textarea>
+      </div>
+    </div>
 
-  <div class="row row-2"></div>
+    <div class="row row-2"></div>
 
-  <input
-    class="pull-right btn btn-primary form-control"
-    type="submit"
-    value="Log In">
+    <div class="form-group">
+      <label for="car-listing-rate" class="col-sm-2 control-label">Daily Rate</label>
+      <div class="col-sm-10">
+        <input
+          id="car-listing-rate"
+          type="text"
+          class="form-control"
+          name="car_listing[rate]"
+          placeholder="Daily rate">
+      </div>
+    </div>
+
+    <div class="row row-2"></div>
+
+    <div class="form-group">
+      <label for="car-listing-deposit" class="col-sm-2 control-label">Deposit</label>
+      <div class="col-sm-10">
+        <input
+          id="car-listing-deposit"
+          type="text"
+          class="form-control"
+          name="car_listing[deposit]"
+          placeholder="Deposit">
+      </div>
+    </div>
+
+    <div class="row row-2"></div>
+
+    <div class="form-group">
+      <label for="car-listing-cancellation" class="col-sm-2 control-label">Cancellation Policy</label>
+      <div class="col-sm-10">
+        <select
+          id="car-listing-cancellation"
+          class="form-control"
+          name="car_listing[cancellation]"
+          placeholder="Cancellation Policy">
+          <option value="standard">Standard</option>
+          <option value="strict">Strict</option>
+        </select>
+      </div>
+    </div>
 
 
-  <div class="row row-2"></div>
 
-</form>
+    <div class="row row-6"></div>
+
+    <h2>Car Information</h2>
+    <hr>
+
+    <div class="form-group">
+      <label for="car-listing-car-year" class="col-sm-2 control-label">Year</label>
+      <div class="col-sm-10">
+        <select
+          class="form-control"
+          id="car-listing-car-year"
+          name="car_listing[car_year]">
+        </select>
+      </div>
+    </div>
+
+    <div class="row row-2"></div>
+
+    <div class="form-group">
+      <label for="car-listing-car-make" class="col-sm-2 control-label">Make</label>
+      <div class="col-sm-10">
+        <select
+          id="car-listing-car-make"
+          class="form-control"
+          name="car_listing[car_make]"
+          placeholder="Make">
+        </select>
+      </div>
+    </div>
+
+    <div class="row row-2"></div>
+
+    <div class="form-group">
+      <label for="car-listing-car-model" class="col-sm-2 control-label">Model</label>
+      <div class="col-sm-10">
+        <select
+          id="car-listing-car-model"
+          class="form-control"
+          name="car_listing[car_model]"
+          placeholder="Model">
+        </select>
+      </div>
+    </div>
+
+    <div class="row row-2"></div>
+
+    <div class="form-group">
+      <label for="car-listing-car-color" class="col-sm-2 control-label">Color</label>
+      <div class="col-sm-10">
+        <input
+          id="car-listing-car-color"
+          type="text"
+          class="form-control"
+          name="car_listing[car_color]"
+          placeholder="Color">
+      </div>
+    </div>
+
+    <div class="row row-2"></div>
+
+      <input
+        class="pull-right btn btn-primary"
+        type="submit"
+        value="Continue">
+
+  </form>
+</div>

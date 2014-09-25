@@ -1,7 +1,8 @@
 Carbnd.Routers.MainRouter = Backbone.Router.extend({
   routes: {
     "": "homeIndex",
-    "new_car_listing": "carListingsNew"
+    "new_car_listing": "carListingsNew",
+    "car_listings/:id": "carListingShow"
   },
 
   initialize: function (options) {
@@ -16,6 +17,12 @@ Carbnd.Routers.MainRouter = Backbone.Router.extend({
   carListingsNew: function () {
     var carListingsNewView = new Carbnd.Views.CarListingsNew();
     this._swapView(carListingsNewView);
+  },
+
+  carListingShow: function (id) {
+
+    var carListingShowView = new Carbnd.Views.CarListingShow();
+    this._swapView(carListingShowView);
   },
 
   _swapView: function (view) {

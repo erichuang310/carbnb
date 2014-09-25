@@ -2,16 +2,15 @@
 #
 # Table name: cars
 #
-#  id                   :integer          not null, primary key
-#  year                 :integer          not null
-#  make                 :string(255)      not null
-#  nameplate            :string(255)      not null
-#  trim                 :string(255)
-#  color                :string(255)      not null
-#  car_listing_id       :integer          not null
-#  created_at           :datetime
-#  updated_at           :datetime
-#  license_plate_number :string(255)      not null
+#  id             :integer          not null, primary key
+#  year           :integer          not null
+#  make           :string(255)      not null
+#  nameplate      :string(255)      not null
+#  trim           :string(255)
+#  color          :string(255)      not null
+#  car_listing_id :integer          not null
+#  created_at     :datetime
+#  updated_at     :datetime
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
