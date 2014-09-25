@@ -1,6 +1,15 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
+
+gem "faker"
+group :development do
+  gem "pry-rails"
+  gem "better_errors"
+  gem "binding_of_caller"
+end
+
+gem 'font-awesome-rails'
 gem 'newrelic_rpm'
 gem 'backbone-on-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

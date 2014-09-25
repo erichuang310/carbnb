@@ -257,16 +257,16 @@ div.modal-content {
 .form-control {
   border-radius: 2px;
 }
-.row-2 {
+.row-offset-2 {
   margin-top: 5px;
   margin-bottom: 5px;
   width: 100%;
 }
-.row-4 {
+.row-offset-4 {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.row-6 {
+.row-offset-6 {
   margin-top: 15px;
   margin-bottom: 15px;
 }

@@ -11,9 +11,23 @@
  * file per style scope.
  *
  *= require bootstrap.min
+ *= require font-awesome
  *= require_tree .
  *= require_self
  */
+
+ /*#request-start-date, #request-end-date {
+
+ }*/
+
+#new-request {
+  padding: 0px 15px;
+  border: 1px solid lightGrey;
+}
+
+.fixed {
+    position: fixed;
+}
 
 #flash-message{
   text-align:left;
@@ -22,16 +36,15 @@
 .form-control {
   border-radius: 2px;
 }
-.row-2 {
+.row-offset-2 {
   margin-top: 5px;
   margin-bottom: 5px;
-  width: 100%;
 }
-.row-4 {
+.row-offset-4 {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.row-6 {
+.row-offset-6 {
   margin-top: 15px;
   margin-bottom: 15px;
 }

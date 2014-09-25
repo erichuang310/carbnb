@@ -20,8 +20,10 @@ Carbnd.Routers.MainRouter = Backbone.Router.extend({
   },
 
   carListingShow: function (id) {
-
-    var carListingShowView = new Carbnd.Views.CarListingShow();
+    var carListing = Carbnd.carListings.getOrFetch(id);
+    var carListingShowView = new Carbnd.Views.CarListingShow({
+      model: carListing
+    });
     this._swapView(carListingShowView);
   },
 

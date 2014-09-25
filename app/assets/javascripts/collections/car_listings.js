@@ -1,4 +1,4 @@
-Carbnd.Models.CarListings = Backbone.Model.extend({
+Carbnd.Collections.CarListings = Backbone.Collection.extend({
   model: Carbnd.Models.CarListing,
   url: "/api/car_listings",
 
@@ -19,3 +19,5 @@ Carbnd.Models.CarListings = Backbone.Model.extend({
     return carListing;
   }
 });
+
+Carbnd.carListings = new Carbnd.Collections.CarListings();

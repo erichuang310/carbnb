@@ -1,0 +1,53 @@
+
+  <div class="row" style="background-color:grey;">
+    <div class="col-xs-12">
+      <h4>GET IT GET IT</h4>
+    </div>
+  </div>
+
+
+<form class="">
+  <div class="row row-offset-4">
+    <div class="col-xs-6">
+      <label for="request-start-date">Start Date</label>
+    </div>
+
+    <div class="col-xs-6">
+      <label for="request-end-date">End Date</label>
+    </div>
+  </div>
+
+  <div class="row row-offset-4">
+    <div class="col-xs-6">
+      <input
+        type="text"
+        id="request-start-date"
+        class="form-control date-picker"
+        placeholder="mm/dd/yy"
+        name="request[start_date]">
+    </div>
+
+    <div class="col-xs-6">
+      <input
+        type="text"
+        id="request-end-date"
+        class="form-control date-picker"
+        placeholder="mm/dd/yy"
+        name="request[end_date]">
+    </div>
+
+  </div>
+
+  <div class="row row-offset-4">
+    <div class="col-xs-12">
+      <input
+        type="submit"
+        value="Reserve"
+        class="form-control">
+    </div>
+  </div>
+</form>
+
+<script>
+  $(".date-picker").datepicker();
+</script>

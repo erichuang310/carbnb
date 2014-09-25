@@ -14776,7 +14776,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
   };
 
   // Set up inheritance for the model, collection, router, view and history.
-  Model.extend = Collection.extend = Router.extend = View.extend = History.extend = extend;
+  Model.extend = Collection.extend = Router.extend =  = History.extend = extend;
 
   // Throw an error when a URL is needed, and none is supplied.
   var urlError = function() {
@@ -15194,7 +15194,7 @@ $(function () {
 
 
 }).call(this);
-Backbone.CompositeView = Backbone.View.extend({
+Backbone.View.extendView = Backbone.({
   addSubview: function (selector, subview) {
     this.subviews(selector).push(subview);
     // Try to attach the subview. Render it as a convenience.

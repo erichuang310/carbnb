@@ -5,9 +5,15 @@ Carbnd.Views.CarListingsNew = Backbone.CompositeView.extend({
   initialize: function () {
     this.title =  "List Your Car",
     this.body = "Carbnd lets you make money sharing out your ride."
+    this.addHeader();
     this.addPanel();
     this.addForm();
     this.addFooter();
+  },
+
+  addHeader: function () {
+    var headerView = new Carbnd.Views.LayoutsNavBar();
+    this.addSubview("header", headerView);
   },
 
   addPanel: function () {

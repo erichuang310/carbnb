@@ -15,7 +15,6 @@
 //= require jquery.serializejson.min
 //= require bootstrap-datepicker
 //= require bootstrap.min
-//= require turbolinks
 //= require underscore
 //= require backbone
 //= require carbnd

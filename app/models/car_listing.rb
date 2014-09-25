@@ -22,15 +22,18 @@ class CarListing < ActiveRecord::Base
   validates :leaser,
             :title,
             :description,
-            :rate, numericality: { only_integer: true }
-            :deposit, numericality: { only_integer: true }
             :cancellation,
             :active,
-            :car_year, numericality: { only_integer: true }
             :car_make,
             :car_model,
             :car_color,
             presence: true
+
+  validates :car_year,
+            :rate,
+            :deposit,
+            presence: true,
+            numericality: { only_integer: true }
 
   belongs_to(
     :leaser,

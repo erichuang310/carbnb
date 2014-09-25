@@ -17,11 +17,14 @@ module Api
     end
 
     def show
-      @car_listing = CarListing.includes(:car, :requests).find(params[:id])
-      @include_requests = @car_listing.leaser.id == current_user.id
+      @car_listing = CarListing.find(params[:id])
+      # @car_listing = CarListing.includes(:requests).find(params[:id])
+      # @include_requests = @car_listing.leaser.id == current_user.id
+      @include_requests = false
 
       if @car_listing
-        render :show
+        render json: @car_listing
+        # render :show
       else
         render json: ["Car listing not found"], status: :not_found
       end
