@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140923180753) do
+ActiveRecord::Schema.define(version: 20140923180508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,12 +37,10 @@ ActiveRecord::Schema.define(version: 20140923180753) do
     t.date     "end_date",                           null: false
     t.integer  "car_listing_id",                     null: false
     t.integer  "leasee_id",                          null: false
-    t.string   "status",         default: "Pending", null: false
+    t.string   "status",         default: "PENDING", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "requests", ["car_listing_id", "leasee_id"], name: "index_requests_on_car_listing_id_and_leasee_id", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",           null: false
