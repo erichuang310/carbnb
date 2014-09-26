@@ -33,7 +33,7 @@
   transition: all 0.2s;
 }
 
-.container-fluid {
+#new-car-listing {
   min-width: 1000px;
 }
 .user-prof-pic {

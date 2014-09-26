@@ -18,7 +18,8 @@ Carbnd.Views.HomeIndex = Backbone.CompositeView.extend({
     var messageView = new Carbnd.Views.LayoutsPanel({
       id: "message",
       title: "Vroom Vroom",
-      body: "Discover automotives that enthusiasts <font color=\"red\">love</font>."
+      body: "Discover automotives that enthusiasts \
+            <font color=\"red\"><strong>love</strong></font>."
     });
     this.addSubview("div#message", messageView);
   },
