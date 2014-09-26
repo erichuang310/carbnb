@@ -3,14 +3,10 @@ Carbnd.Views.LayoutsFlashMessage = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     this.messages = options.messages
-    debugger;
-    // this.class = options.class
   },
 
   render: function () {
-    var renderedContent = this.template({
-      messages: this.messages
-    });
+    var renderedContent = this.template({ messages: this.messages });
     this.$el.html(renderedContent);
 
     return this;

@@ -93,7 +93,6 @@ Carbnd.Views.CarListingsForm = Backbone.CompositeView.extend({
         alert("GOOD");
       },
       error : function (model, resp) {
-        debugger;
         that.addFlashErrors(resp.responseJSON);
       }
     });

@@ -4,44 +4,19 @@ Carbnd.Views.HomeHeader = Backbone.CompositeView.extend({
   tagName: "header",
   className: "row",
 
-  events: {
-    "click a.login": "showLoginModal",
-    "click a.signup": "showSignupModal"
+  initialize: function () {
+    this.addNavbar();
+    this.addSearchForm();
   },
 
-  initialize: function () {
-    this.addSearchForm();
-    this.addLoginModal();
-    this.addSignupModal();
+  addNavbar: function () {
+    var navBarView = new Carbnd.Views.LayoutsNavbar();
+    this.addSubview("nav#home-nav", navBarView);
   },
 
   addSearchForm: function () {
     var searchFormView = new Carbnd.Views.HomeSearchForm();
     this.addSubview("#search-form", searchFormView);
-  },
-
-  addLoginModal: function () {
-    var loginModalView = new Carbnd.Views.AuthModal({
-      type: "login"
-    });
-    this.addSubview("#auth-modal-0", loginModalView);
-  },
-
-  addSignupModal: function () {
-    var signupModalView = new Carbnd.Views.AuthModal({
-      type: "signup"
-    });
-    this.addSubview("#auth-modal-1", signupModalView);
-  },
-
-  showLoginModal: function (event) {
-    event.preventDefault();
-    this.$("#login-modal").modal("show");
-  },
-
-  showSignupModal: function (event) {
-    event.preventDefault();
-    this.$("#signup-modal").modal("show");
   },
 
   render: function () {

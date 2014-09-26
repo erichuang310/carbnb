@@ -29,7 +29,7 @@ Carbnd.Routers.MainRouter = Backbone.Router.extend({
   },
 
   searchIndex: function () {
-    var searchIndexView = Carbnd.Views.SearchIndex();
+    var searchIndexView = new Carbnd.Views.SearchIndex();
     this._swapView(searchIndexView);
   },
 

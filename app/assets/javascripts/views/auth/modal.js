@@ -1,14 +1,9 @@
 Carbnd.Views.AuthModal = Backbone.CompositeView.extend({
   loginTemplate: JST["auth/login_form"],
   signupTemplate: JST["auth/signup_form"],
-  className: "modal fade",
-  id: "future-modal",
 
   initialize: function (options) {
     this.type = options.type;
-    this.$el.attr({
-      id: this.type === "login" ? "login-modal": "signup-modal"
-    })
   },
 
   events: {
@@ -33,7 +28,7 @@ Carbnd.Views.AuthModal = Backbone.CompositeView.extend({
         type: "POST",
         data: userParams,
         success: function (model, resp) { that.hide(); },
-        error: function (model, resp) { debugger; that.addFlashErrors([model.responseJSON.message]); }
+        error: function (model, resp) { that.addFlashErrors([model.responseJSON.message]); }
       });
     }
 

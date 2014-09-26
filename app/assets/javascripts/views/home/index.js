@@ -3,10 +3,11 @@ Carbnd.Views.HomeIndex = Backbone.CompositeView.extend({
   className: "container-fluid",
 
   initialize: function () {
-    this.addHeader();
-    this.addMessage();
+    console.log("adding home index")
+    // this.addHeader();
+    this.addIntroMessage();
     this.addDiscoveries();
-    this.addFooter();
+    // this.addFooter();
   },
 
   addHeader: function () {
@@ -14,14 +15,14 @@ Carbnd.Views.HomeIndex = Backbone.CompositeView.extend({
     this.addSubview("header", headerView);
   },
 
-  addMessage: function () {
+  addIntroMessage: function () {
     var messageView = new Carbnd.Views.LayoutsPanel({
       id: "message",
       title: "Vroom Vroom",
       body: "Discover automotives that enthusiasts \
             <font color=\"red\"><strong>love</strong></font>."
     });
-    this.addSubview("div#message", messageView);
+    this.addSubview("div#intro-message", messageView);
   },
 
   addDiscoveries: function () {
@@ -30,7 +31,7 @@ Carbnd.Views.HomeIndex = Backbone.CompositeView.extend({
   },
 
   addFooter: function () {
-    var footerView = new Carbnd.Views.LayoutsFooter({ id: "home" });
+    var footerView = new Carbnd.Views.LayoutsFooter();
     this.addSubview("footer", footerView);
   },
 

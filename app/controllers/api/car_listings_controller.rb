@@ -12,7 +12,7 @@ module Api
     end
 
     def index
-      @car_listings = CarListing.includes(:car).all
+      @car_listings = CarListing.limit(10);
       render json: @car_listings
     end
 

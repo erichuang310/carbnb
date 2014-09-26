@@ -12,6 +12,7 @@
  *
  *= require bootstrap.min
  *= require jasny-bootstrap.min
+
  *= require font-awesome
  *= require_tree .
  *= require_self
@@ -20,6 +21,24 @@
  /*#request-start-date, #request-end-date {
 
  }*/
+
+#map-canvas {
+  height:650px;
+  /* *= require jquery-ui.min*/
+}
+
+ #search-index {
+    position:fixed;
+    top:0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+}
+
+ #search-index #sidebar {
+   overflow-y: scroll;
+   height: 650px;
+ }
 
 .img-discovery {
   border-radius: 2px;
@@ -69,6 +88,10 @@
 .row-offset-6 {
   margin-top: 15px;
   margin-bottom: 15px;
+}
+
+.car-listing-item {
+  min-height:100px;
 }
 
 header#home {

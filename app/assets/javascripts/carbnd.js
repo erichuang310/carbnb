@@ -4,7 +4,7 @@ window.Carbnd = {
   Views: {},
   Routers: {},
   initialize: function() {
-    new Carbnd.Routers.MainRouter ({ $rootEl: $("body") });
+    new Carbnd.Routers.MainRouter ({ $rootEl: $("#backbone-container") });
     Backbone.history.start();
   }
 };

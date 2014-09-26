@@ -12,7 +12,7 @@ Carbnd.Views.CarListingsNew = Backbone.CompositeView.extend({
   },
 
   addHeader: function () {
-    var headerView = new Carbnd.Views.LayoutsNavBar();
+    var headerView = new Carbnd.Views.LayoutsNavbar();
     this.addSubview("header", headerView);
   },
 
