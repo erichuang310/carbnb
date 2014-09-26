@@ -16,15 +16,16 @@ Carbnd.Views.HomeIndex = Backbone.CompositeView.extend({
 
   addMessage: function () {
     var messageView = new Carbnd.Views.LayoutsPanel({
+      id: "message",
       title: "Vroom Vroom",
       body: "Discover automotives that enthusiasts <font color=\"red\">love</font>."
     });
-    this.addSubview("section#message", messageView);
+    this.addSubview("div#message", messageView);
   },
 
   addDiscoveries: function () {
     var discoveriesView = new Carbnd.Views.HomeDiscoveries();
-    this.addSubview("section#discoveries", discoveriesView);
+    this.addSubview("div#discoveries", discoveriesView);
   },
 
   addFooter: function () {

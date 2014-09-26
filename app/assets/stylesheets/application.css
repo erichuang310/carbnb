@@ -21,6 +21,18 @@
 
  }*/
 
+.img-discovery {
+  border-radius: 2px;
+  padding: 4px;
+  border: 1px solid lightGrey;
+  background-clip:content-box;
+}
+
+.img-discovery:hover {
+  background:rgba(0,0,0,0.6);
+  transition: all 0.2s;
+}
+
 .container-fluid {
   min-width: 1000px;
 }
@@ -84,11 +96,11 @@ div#home-search .form-control {
   border: 1px solid darkGrey;
 }
 
-section#message {
+div#message {
   margin-top: 15px;
 }
 /*
-section#discoveries {
+div#discoveries {
   margin-top: 15px;
   margin-bottom: 15px;
 }*/
@@ -106,7 +118,7 @@ footer {
   background-position: center;
   color: white;
 }
-footer {
+footer a {
   color: white;
 }
 footer ul li {
@@ -118,7 +130,7 @@ footer ul li {
   padding-bottom: 30px;
   background-color: #E3E3E3;
 }
-section {
+/*div {
   padding-top:30px;
     padding-bottom:30px;
-}
+}*/
