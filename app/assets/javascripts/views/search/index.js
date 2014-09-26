@@ -1,4 +1,4 @@
-Carbnd.Views.SearchIndex = Backbone.View.extend({
+Carbnd.Views.SearchIndex = Backbone.CompositeView.extend({
   template: JST["search/index"],
 
   render: function () {
