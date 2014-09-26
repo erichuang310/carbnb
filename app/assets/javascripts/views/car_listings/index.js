@@ -14,6 +14,7 @@ Carbnd.Views.CarListingsIndex = Backbone.CompositeView.extend({
   addCarListing: function (carListing) {
     var carListingView = new Carbnd.Views.CarListingItem({ model: carListing });
     this.addSubview("#car-listing-items", carListingView);
+    PubSub.publish('car-listings', carListingView);
   },
 
   removeCarListing: function (carListing) {

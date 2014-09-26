@@ -12,6 +12,9 @@ class CreateCarListings < ActiveRecord::Migration
       t.string :car_make, null: false
       t.string :car_model, null: false
       t.string :car_color, null: false
+      t.string :address, null: false
+      t.float :latitude, null: false
+      t.float :longitude, null: false
 
       t.timestamps
     end

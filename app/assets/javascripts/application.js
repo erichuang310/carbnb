@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery-ui.min
 //= require jquery_ujs
+//= require pubsub
 //= require jquery.serializejson.min
 //= require bootstrap-datepicker
 //= require bootstrap.min

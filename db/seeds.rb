@@ -10,7 +10,7 @@
 
 ActiveRecord::Base.transaction do
   # Create users
-  100.times do |i|
+  20.times do |i|
     User.create(
       email: Faker::Internet.email,
       first_name: Faker::Name.first_name,
@@ -20,7 +20,8 @@ ActiveRecord::Base.transaction do
   end
 
   # Create listings
-  200.times do |i|
+  20.times do |i|
+    sleep 0.5
     CarListing.create(
       leaser: User.all.sample,
       title: Faker::Name.title,
@@ -31,7 +32,15 @@ ActiveRecord::Base.transaction do
       car_year: rand(2000..2015),
       car_make: Faker::Lorem.word,
       car_model: Faker::Lorem.word,
-      car_color: Faker::Lorem.word
+      car_color: Faker::Lorem.word,
+      address: [
+        "1060 bush street, san francisco",
+        "1050 market street, san francisco",
+        "74 Mission Rock Street, San Francisco",
+        "100 6th St, San Francisco",
+        "222 Mason St, San Francisco, CA 94102",
+        "Union Square, 333 Post St, San Francisco",
+        "1890 Clay St, San Francisco, CA 94109"].sample
     )
   end
 
