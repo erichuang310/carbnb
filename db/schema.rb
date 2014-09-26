@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140923180508) do
+ActiveRecord::Schema.define(version: 20140926015836) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,13 @@ ActiveRecord::Schema.define(version: 20140923180508) do
     t.string   "car_make",                    null: false
     t.string   "car_model",                   null: false
     t.string   "car_color",                   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "images", force: true do |t|
+    t.string   "file_picker_url", null: false
+    t.string   "car_listing_id",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
