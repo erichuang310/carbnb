@@ -8,7 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Carbnd
   class Application < Rails::Application
-
+    config.filepicker_rails.api_key = "Au0MNfDuvQ6WDc8kvPIGsz"
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

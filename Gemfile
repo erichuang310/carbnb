@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
-
+gem 'filepicker-rails'
 gem "faker"
 group :development do
   gem "pry-rails"

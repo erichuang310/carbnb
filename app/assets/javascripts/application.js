@@ -15,6 +15,7 @@
 //= require jquery.serializejson.min
 //= require bootstrap-datepicker
 //= require bootstrap.min
+//= require jasny-bootstrap.min
 //= require underscore
 //= require backbone
 //= require carbnd

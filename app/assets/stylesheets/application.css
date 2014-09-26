@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require bootstrap.min
+ *= require jasny-bootstrap.min
  *= require font-awesome
  *= require_tree .
  *= require_self
@@ -19,6 +20,15 @@
  /*#request-start-date, #request-end-date {
 
  }*/
+
+.container-fluid {
+  min-width: 1000px;
+}
+.user-prof-pic {
+  display: block;
+  max-width: 80%;
+  margin: 0 auto;
+}
 
 #new-request {
   padding: 0px 15px;
