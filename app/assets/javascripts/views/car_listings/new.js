@@ -18,7 +18,7 @@ Carbnd.Views.CarListingsNew = Backbone.CompositeView.extend({
 
   addPanel: function () {
     var layoutsPanelView = new Carbnd.Views.LayoutsPanel({
-      id: "new-car-listing",
+      id: "new-car-listing-message",
       title: this.title,
       body: this.body
     });
