@@ -12,14 +12,18 @@ module Api
     end
 
     def index
+      puts search_params
+      
+      puts "\n\n\n"
+      puts "\n\n\n"
+      puts "\n\n\n"
+
       @car_listings = CarListing.limit(10);
       render json: @car_listings
     end
 
     def show
       @car_listing = CarListing.find(params[:id])
-      # @car_listing = CarListing.includes(:requests).find(params[:id])
-      # @include_requests = @car_listing.leaser.id == current_user.id
       @include_requests = false
 
       if @car_listing
@@ -49,6 +53,20 @@ module Api
         :car_make,
         :car_model,
         :car_color
+      )
+    end
+
+    def search_params
+      params.permit(
+        :left_border,
+        :top_border,
+        :right_border,
+        :bottom_border,
+        :start_date,
+        :end_date,
+        :car_type,
+        :min_price,
+        :max_price
       )
     end
   end
