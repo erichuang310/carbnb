@@ -1,7 +1,5 @@
 Carbnd.Views.CarListingsForm = Backbone.CompositeView.extend({
   template: JST["car_listings/form"],
-  className: "row",
-  id: "new-car-listing",
 
   initialize: function () {
     this.cars = {};

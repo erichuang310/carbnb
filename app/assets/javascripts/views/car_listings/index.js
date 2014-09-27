@@ -11,6 +11,15 @@ Carbnd.Views.CarListingsIndex = Backbone.CompositeView.extend({
     });
   },
 
+  // events: {
+  //   "mouseover .car-listing-item": "sayHover"
+  // },
+  //
+  // sayHover: function (event) {
+  //   debugger;
+  //   console.log(event);
+  // },
+
   addCarListing: function (carListing) {
     var carListingView = new Carbnd.Views.CarListingItem({ model: carListing });
     this.addSubview("#car-listing-items", carListingView);

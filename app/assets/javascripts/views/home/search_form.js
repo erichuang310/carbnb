@@ -1,6 +1,5 @@
 Carbnd.Views.HomeSearchForm = Backbone.CompositeView.extend({
   template: JST["home/search_form"],
-  id: "home-search",
 
   events: {
     "submit form": "handleSearch"

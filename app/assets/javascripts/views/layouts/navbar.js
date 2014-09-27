@@ -13,12 +13,12 @@ Carbnd.Views.LayoutsNavbar = Backbone.CompositeView.extend({
 
   addLoginModal: function () {
     var loginModalView = new Carbnd.Views.AuthModal({ type: "login" });
-    this.addSubview("#login-modal", loginModalView);
+    this.addSubview("#login", loginModalView);
   },
 
   addSignupModal: function () {
     var signupModalView = new Carbnd.Views.AuthModal({ type: "signup" });
-    this.addSubview("#signup-modal", signupModalView);
+    this.addSubview("#signup", signupModalView);
   },
 
   showLoginModal: function (event) {
@@ -34,7 +34,7 @@ Carbnd.Views.LayoutsNavbar = Backbone.CompositeView.extend({
   render: function () {
     var renderedContent = this.template();
     this.$el.html(renderedContent);
-    
+
     return this;
   }
 });

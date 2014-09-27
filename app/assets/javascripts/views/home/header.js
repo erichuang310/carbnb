@@ -1,8 +1,6 @@
 Carbnd.Views.HomeHeader = Backbone.CompositeView.extend({
   template: JST["home/header"],
-  id: "home",
   tagName: "header",
-  className: "row",
 
   initialize: function () {
     this.addNavbar();
@@ -11,12 +9,13 @@ Carbnd.Views.HomeHeader = Backbone.CompositeView.extend({
 
   addNavbar: function () {
     var navBarView = new Carbnd.Views.LayoutsNavbar();
-    this.addSubview("nav#home-nav", navBarView);
+    this.addSubview("div#navbar", navBarView);
   },
 
   addSearchForm: function () {
+    console.log("wtf");
     var searchFormView = new Carbnd.Views.HomeSearchForm();
-    this.addSubview("#search-form", searchFormView);
+    this.addSubview("div#home-search", searchFormView);
   },
 
   render: function () {

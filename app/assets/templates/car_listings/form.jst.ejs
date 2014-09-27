@@ -1,8 +1,15 @@
+<style>
+  .col-xs-2.control-label {
+    text-align: right;
+    padding-top: 7px;
+  }
+</style>
+
 <div class="col-xs-8 col-xs-offset-2">
 
   <div id="flash-message"></div>
   <form class="form-horizontal">
-    <h2>Listing Information</h2>
+    <h3>Listing Information</h3>
     <hr>
 
     <div class="form-group">
@@ -13,7 +20,7 @@
           id="car-listing-title"
           class="form-control"
           name="car_listing[title]"
-          placeholder="Title">
+          placeholder="Rent my BADASS vehicular transport for the weekend.">
       </div>
     </div>
 
@@ -62,24 +69,22 @@
     <div class="row row-offset-2"></div>
 
     <div class="form-group">
-      <label for="car-listing-cancellation" class="col-xs-2 control-label">Cancellation Policy</label>
+      <label for="car-listing-cancellation" class="col-xs-2 control-label">Cancellation</label>
       <div class="col-xs-10">
         <select
           id="car-listing-cancellation"
           class="form-control"
           name="car_listing[cancellation]"
-          placeholder="Cancellation Policy">
+          placeholder="Cancellation">
           <option value="standard">Standard</option>
           <option value="strict">Strict</option>
         </select>
       </div>
     </div>
 
+    <!-- <div class="row row-offset-6"></div> -->
 
-
-    <div class="row row-offset-6"></div>
-
-    <h2>Car Information</h2>
+    <h3>Car Information</h3>
     <hr>
 
     <div class="form-group">
@@ -137,7 +142,7 @@
 
     <div class="row row-offset-6"></div>
 
-    <h2>Upload Pictures</h2>
+    <h3>Upload Pictures</h3>
     <hr>
 
     <div class="row">

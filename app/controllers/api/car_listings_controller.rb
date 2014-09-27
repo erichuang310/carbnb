@@ -12,13 +12,7 @@ module Api
     end
 
     def index
-      puts search_params
-      
-      puts "\n\n\n"
-      puts "\n\n\n"
-      puts "\n\n\n"
-
-      @car_listings = CarListing.limit(10);
+      @car_listings = CarListing.limit(3);
       render json: @car_listings
     end
 

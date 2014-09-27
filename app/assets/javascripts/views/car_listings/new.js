@@ -1,26 +1,25 @@
 Carbnd.Views.CarListingsNew = Backbone.CompositeView.extend({
   template: JST["car_listings/new"],
-  className: "container-fluid",
 
   initialize: function () {
-    this.title =  "List Your Car",
-    this.body = "Carbnd lets you make money sharing out your ride."
-    this.addHeader();
+    this.panelTitle =  "List Your Car",
+    this.panelBody = "Carbnd lets you make money sharing out your ride."
+    this.addNavbar();
     this.addPanel();
     this.addForm();
     this.addFooter();
   },
 
-  addHeader: function () {
-    var headerView = new Carbnd.Views.LayoutsNavbar();
-    this.addSubview("header", headerView);
+  addNavbar: function () {
+    var navbarView = new Carbnd.Views.LayoutsNavbar();
+    this.addSubview("#navbar", navbarView);
   },
 
   addPanel: function () {
     var layoutsPanelView = new Carbnd.Views.LayoutsPanel({
-      id: "new-car-listing-message",
-      title: this.title,
-      body: this.body
+      className: "text-center",
+      title: this.panelTitle,
+      body: this.panelBody
     });
     this.addSubview("#splash-message", layoutsPanelView);
   },
@@ -32,7 +31,7 @@ Carbnd.Views.CarListingsNew = Backbone.CompositeView.extend({
 
   addFooter: function () {
     var footerView = new Carbnd.Views.LayoutsFooter({ id: "car-listing-new" });
-    this.addSubview("footer", footerView);
+    this.addSubview("#footer", footerView);
   },
 
   render: function () {

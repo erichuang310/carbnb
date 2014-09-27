@@ -18,6 +18,7 @@
 //= require bootstrap-datepicker
 //= require bootstrap.min
 //= require jasny-bootstrap.min
+//= require fontawesome-markers
 //= require underscore
 //= require backbone
 //= require carbnd

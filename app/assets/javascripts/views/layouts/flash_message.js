@@ -10,5 +10,5 @@ Carbnd.Views.LayoutsFlashMessage = Backbone.CompositeView.extend({
     this.$el.html(renderedContent);
 
     return this;
-  },
+  }
 });

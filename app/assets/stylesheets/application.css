@@ -22,6 +22,17 @@
 
  }*/
 
+.nav .open>a, .nav .open>a:hover, .nav .open>a:focus, .nav li a:hover, .nav>li>a:hover, .nav>li>a:focus {
+  background-color:transparent;
+}
+
+.navbar-brand, .navbar-nav>li>a {
+  color: black;
+}
+.alert {
+  border-radius: 2px;
+}
+
 #map-canvas {
   height:650px;
   /* *= require jquery-ui.min*/
@@ -52,7 +63,7 @@
   transition: all 0.2s;
 }
 
-#new-car-listing {
+.container-fluid{
   min-width: 1000px;
 }
 .user-prof-pic {
@@ -94,7 +105,7 @@
   min-height:100px;
 }
 
-header#home {
+header {
   position: relative;
   text-align: center;
   min-height: 600px;
@@ -103,7 +114,7 @@ header#home {
   background-position: center;
   background-repeat: no-repeat;
 }
-div#home-search {
+#home-search {
   bottom: 0;
   position: absolute;
   width: 100%;
@@ -111,12 +122,17 @@ div#home-search {
   padding-bottom: 30px;
   background-color:rgba(0, 0, 0, 0.5);
 }
-div#home-search .form-control {
+#home-search .form-control {
   -webkit-appearance: none;
   -webkit-border-radius: 0px;
   height: 45px;
   border-radius: 0px;
   border: 1px solid darkGrey;
+}
+
+.form-control {
+  -webkit-appearance: none;
+  -webkit-border-radius: 2px;
 }
 
 div#message {
@@ -157,3 +173,17 @@ footer ul li {
   padding-top:30px;
     padding-bottom:30px;
 }*/
+
+
+/* Modal */
+.modal-dialog {
+  margin-top: 200px;
+}
+
+div.modal-content {
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 2px;
+  background-color:rgba(250, 250, 250, 1);
+}
