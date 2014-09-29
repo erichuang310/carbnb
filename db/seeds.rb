@@ -45,6 +45,7 @@ ActiveRecord::Base.transaction do
   end
 
   CarListing.all.each do |c|
+    sleep 1
     c.images << Image.new(file_picker_url: "/assets/" + ["370z.jpg", "fj.jpg", "g63.jpg", "model_s.jpg", "smart_front_side.jpg"].sample)
     c.save
   end
