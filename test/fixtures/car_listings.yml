@@ -14,6 +14,9 @@
 #  car_make     :string(255)      not null
 #  car_model    :string(255)      not null
 #  car_color    :string(255)      not null
+#  address      :string(255)      not null
+#  latitude     :float            not null
+#  longitude    :float            not null
 #  created_at   :datetime
 #  updated_at   :datetime
 #

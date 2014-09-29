@@ -19,7 +19,10 @@ Carbnd.Views.AuthModal = Backbone.CompositeView.extend({
     if (this.type === "signup") {
       var user = new Carbnd.Models.User(userParams);
       user.save({}, {
-        success: function (model, resp) { that.hide(); },
+        success: function (model, resp) {
+          // debugger;
+          that.hide();
+        },
         error: function (model, resp) { that.addFlashErrors(resp.responseJSON); }
       });
     } else if (this.type === "login") {
@@ -41,7 +44,7 @@ Carbnd.Views.AuthModal = Backbone.CompositeView.extend({
   },
 
   hide: function () {
-    this.$el.modal("hide");
+  this.$el.contents().modal("hide");
     this.$("#flash-message").empty();
     this.$("input[type=text]").val("");
     this.$("input[type=password]").val("");

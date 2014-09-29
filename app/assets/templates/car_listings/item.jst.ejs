@@ -1,33 +1,9 @@
 <div class="car-listing-mouseover">
-  <div id="car-listing-item-carousel-<%= carListing.id %>" class="carousel slide" data-ride="carousel">
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active">
-        <img src="/assets/smart-item.jpg" class="img-responsive"></img>
-      </div>
-      <div class="item">
-        <img src="/assets/smart-item.jpg" class="img-responsive"></img>
-      </div>
-    </div>
+  <div class="carousel-container"></div>
 
-    <!-- Controls -->
-    <a class="left carousel-control" href="#car-listing-item-carousel-<%= carListing.id %>" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-    </a>
-    <a class="right carousel-control" href="#car-listing-item-carousel-<%= carListing.id %>" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-    </a>
-  </div>
-
-  <strong><%= carListing.get("title") %></strong>
-  <br>
-  <%= carListing.get("car_make") %> <%= carListing.get("car_model") %>
+  <a href="#/car_listings/<%= carListing.id %>">
+    <strong><%= carListing.get("title") %></strong>
+    <br>
+    <%= carListing.get("car_make") %> <%= carListing.get("car_model") %>
+  </a>
 </div>
-
-<script>
-  $(function () {
-    $('.carousel').carousel({
-      interval: false
-    })
-  });
-</script>

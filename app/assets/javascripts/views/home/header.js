@@ -13,7 +13,6 @@ Carbnd.Views.HomeHeader = Backbone.CompositeView.extend({
   },
 
   addSearchForm: function () {
-    console.log("wtf");
     var searchFormView = new Carbnd.Views.HomeSearchForm();
     this.addSubview("div#home-search", searchFormView);
   },

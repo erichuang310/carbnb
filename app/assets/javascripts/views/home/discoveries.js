@@ -1,7 +1,5 @@
 Carbnd.Views.HomeDiscoveries = Backbone.CompositeView.extend({
   template: JST["home/discoveries"],
-  tagName: "div",
-  id: "discoveries",
   className: "container",
 
   render: function () {

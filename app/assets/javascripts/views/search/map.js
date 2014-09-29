@@ -1,5 +1,6 @@
 Carbnd.Views.SearchMap = Backbone.CompositeView.extend({
   template: JST["search/map"],
+  id: "map-view",
 
   initialize: function () {
     this.mapOptions = {
@@ -53,7 +54,7 @@ Carbnd.Views.SearchMap = Backbone.CompositeView.extend({
             fillOpacity: 0.8,
         },
     });
-
+    debugger;
     this.markers.push(marker);
     marker.carListingId = carListingView.model.id
 

@@ -14,6 +14,9 @@
 #  car_make     :string(255)      not null
 #  car_model    :string(255)      not null
 #  car_color    :string(255)      not null
+#  address      :string(255)      not null
+#  latitude     :float            not null
+#  longitude    :float            not null
 #  created_at   :datetime
 #  updated_at   :datetime
 #
@@ -50,6 +53,13 @@ class CarListing < ActiveRecord::Base
   has_many(
     :requests,
     class_name: "Request",
+    foreign_key: :car_listing_id,
+    primary_key: :id
+  )
+
+  has_many(
+    :images,
+    class_name: "Image",
     foreign_key: :car_listing_id,
     primary_key: :id
   )

@@ -1,7 +1,12 @@
 Carbnd.Views.CarListingsIndex = Backbone.CompositeView.extend({
   template: JST["car_listings/index"],
+  // className: "container-fluid",
 
   initialize: function () {
+    this.addNavbar();
+    this.addMap();
+    this.addSearch();
+
     this.listenTo(this.collection, "add", this.addCarListing);
     this.listenTo(this.collection, "remove", this.removeCarListing);
 
@@ -11,29 +16,35 @@ Carbnd.Views.CarListingsIndex = Backbone.CompositeView.extend({
     });
   },
 
-  // events: {
-  //   "mouseover .car-listing-item": "sayHover"
-  // },
-  //
-  // sayHover: function (event) {
-  //   debugger;
-  //   console.log(event);
-  // },
+  addNavbar: function () {
+    var navbarView = new Carbnd.Views.LayoutsNavbar();
+    this.addSubview("#nav", navbarView);
+  },
+
+  addMap: function () {
+    var mapView = new Carbnd.Views.SearchMap();
+    this.addSubview("#map", mapView);
+  },
+
+  addSearch: function () {
+    var searchFormView = new Carbnd.Views.SearchForm();
+    this.addSubview("#search", searchFormView);
+  },
 
   addCarListing: function (carListing) {
     var carListingView = new Carbnd.Views.CarListingItem({ model: carListing });
-    this.addSubview("#car-listing-items", carListingView);
+    this.addSubview("#car-listings", carListingView);
     PubSub.publish('car-listings', carListingView);
   },
 
   removeCarListing: function (carListing) {
     var subview = _.find(
-      this.subviews("#car-listing-items"),
+      this.subviews("#car-listings"),
       function (subview) {
         return subview.model === carListing;
       }
     );
-    this.removeSubview("#car-listing-items", subview);
+    this.removeSubview("#car-listings", subview);
   },
 
   render: function () {

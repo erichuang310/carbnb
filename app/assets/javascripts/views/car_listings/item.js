@@ -2,6 +2,10 @@ Carbnd.Views.CarListingItem = Backbone.CompositeView.extend({
   template: JST["car_listings/item"],
   className: "car-listing-item col-xs-6",
 
+  initialize: function () {
+    this.addCarousel();
+  },
+
   events: {
     "mouseover .car-listing-mouseover": "handleMouseOver",
     "mouseout .car-listing-mouseover": "handleMouseOut"
@@ -12,8 +16,14 @@ Carbnd.Views.CarListingItem = Backbone.CompositeView.extend({
   },
 
   handleMouseOut: function () {
-    console.log("Handling Mouse Out");
     PubSub.publish('car-listing-mouseout', this);
+  },
+
+  addCarousel: function () {
+    var carouselView = new Carbnd.Views.LayoutsCarousel({
+      model: this.model
+    })
+    this.addSubview(".carousel-container", carouselView);
   },
 
   render: function () {

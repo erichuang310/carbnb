@@ -36,5 +36,8 @@ Carbnd.Views.LayoutsNavbar = Backbone.CompositeView.extend({
     this.$el.html(renderedContent);
 
     return this;
+  },
+  remove: function () {
+    console.log("removing");
   }
 });

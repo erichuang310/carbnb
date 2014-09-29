@@ -12,7 +12,7 @@ Carbnd.Views.CarListingsNew = Backbone.CompositeView.extend({
 
   addNavbar: function () {
     var navbarView = new Carbnd.Views.LayoutsNavbar();
-    this.addSubview("#navbar", navbarView);
+    this.addSubview("nav", navbarView);
   },
 
   addPanel: function () {
@@ -31,7 +31,7 @@ Carbnd.Views.CarListingsNew = Backbone.CompositeView.extend({
 
   addFooter: function () {
     var footerView = new Carbnd.Views.LayoutsFooter({ id: "car-listing-new" });
-    this.addSubview("#footer", footerView);
+    this.addSubview("footer", footerView);
   },
 
   render: function () {

@@ -1,7 +1,5 @@
 Carbnd.Views.RequestForm = Backbone.CompositeView.extend({
   template: JST["requests/form"],
-  className: "fixed col-xs-3",
-  id: "new-request",
 
   initialize: function (options) {
     this.carListingId = options.carListingId

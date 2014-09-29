@@ -12,8 +12,8 @@ module Api
     end
 
     def index
-      @car_listings = CarListing.limit(3);
-      render json: @car_listings
+      @car_listings = CarListing.includes(:images).limit(6);
+      render :index
     end
 
     def show

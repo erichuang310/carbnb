@@ -3,7 +3,7 @@ Carbnd.Routers.MainRouter = Backbone.Router.extend({
     "": "homeIndex",
     "new_car_listing": "carListingsNew",
     "car_listings/:id": "carListingShow",
-    "search": "searchIndex"
+    "car_listings": "carListingsIndex"
   },
 
   initialize: function (options) {
@@ -28,9 +28,12 @@ Carbnd.Routers.MainRouter = Backbone.Router.extend({
     this._swapView(carListingShowView);
   },
 
-  searchIndex: function () {
-    var searchIndexView = new Carbnd.Views.SearchIndex();
-    this._swapView(searchIndexView);
+  carListingsIndex: function () {
+    Carbnd.carListings.fetch();
+    var carListingsView = new Carbnd.Views.CarListingsIndex({
+      collection: Carbnd.carListings
+    });
+    this._swapView(carListingsView);
   },
 
   _swapView: function (view) {

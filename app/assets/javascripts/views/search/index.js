@@ -3,23 +3,24 @@ Carbnd.Views.SearchIndex = Backbone.CompositeView.extend({
   id: "search-index",
 
   initialize: function () {
-    // this.addNavbar();
+    this.addNavbar();
     this.addMap();
     this.addSidebar();
+    window.h = this;
   },
 
   addNavbar: function () {
-    var navbarView = new Carbnd.Views.LayoutsNavbar();
-    this.addSubview("#nav-bar", navbarView);
+    var navbarView = new Carbnd.Views.LayoutsNavbar({ id: "navbar" });
+    this.addSubview("#navbar", navbarView);
   },
 
   addMap: function () {
-    var mapView = new Carbnd.Views.SearchMap();
+    var mapView = new Carbnd.Views.SearchMap({ id: "map" });
     this.addSubview("#map", mapView)
   },
 
   addSidebar: function () {
-    var sidebarView = new Carbnd.Views.SearchSidebar();
+    var sidebarView = new Carbnd.Views.SearchSidebar({ id: "sidebar" });
     this.addSubview("#sidebar", sidebarView);
   },
 
