@@ -29,7 +29,7 @@ Carbnd.Routers.MainRouter = Backbone.Router.extend({
   },
 
   carListingsIndex: function () {
-    Carbnd.carListings.fetch();
+    Carbnd.carListings.fetch({ data: Carbnd.searchParams });
     var carListingsView = new Carbnd.Views.CarListingsIndex({
       collection: Carbnd.carListings
     });

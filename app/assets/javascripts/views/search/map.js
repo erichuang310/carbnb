@@ -1,4 +1,4 @@
-Carbnd.Views.SearchMap = Backbone.CompositeView.extend({
+Carbnd.Views.SearchMap = Backbone.View.extend({
   template: JST["search/map"],
   id: "map-view",
 
@@ -54,7 +54,6 @@ Carbnd.Views.SearchMap = Backbone.CompositeView.extend({
             fillOpacity: 0.8,
         },
     });
-    debugger;
     this.markers.push(marker);
     marker.carListingId = carListingView.model.id
 
@@ -106,7 +105,6 @@ Carbnd.Views.SearchMap = Backbone.CompositeView.extend({
     });
   },
 
-
   closeInfoWindows: function () {
     _(this.infoWindows).each(function (infoWindow) {
       infoWindow.close();
@@ -116,8 +114,9 @@ Carbnd.Views.SearchMap = Backbone.CompositeView.extend({
   render: function () {
     var renderedContent = this.template();
     this.$el.html(renderedContent);
-    this.attachSubviews();
     this.addMap();
+    google.maps.event.trigger(this.map, 'resize');
+    console.log("map rendering");
 
     return this;
   }

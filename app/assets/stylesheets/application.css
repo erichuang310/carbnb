@@ -12,12 +12,28 @@
  *
  *= require bootstrap.min
  *= require jasny-bootstrap.min
- *= require jquery-ui.min
+ *= require bootstrap-slider
  *= require font-awesome
  *= require_tree .
  *= require_self
  */
 
+* {
+  /*border: 1px solid black;*/
+}
+
+
+.carousel-control .control-left,
+.carousel-control .control-right {
+  position: absolute;
+  top: 42%;
+  /*z-index: 5;*/
+  /*display: inline-block;*/
+}
+
+.carousel-control.left, .carousel-control.right {
+    background-image: none
+}
 
 /* General */
 html, body {
@@ -76,7 +92,14 @@ header#home {
 .navbar {
   margin-bottom: 0;
   border: 0;
+  border-bottom: 1px solid lightGrey;
   padding-left: 15px;
+}
+#home .navbar {
+  border-bottom: 0px;
+}
+#search {
+  padding: 0px 0px;
 }
 .nav .open a:focus, .nav li a:hover, .nav li>a:focus {
   background-color:transparent;
@@ -140,9 +163,30 @@ footer ul li {
   background-color: #f5f5f5;
 }
 
+#car-listings {
+  padding-right: 15px;
+  background-color: #f5f5f5;
+}
 
 #intro-message {
   padding-top: 15px;
+}
+
+#map {
+  padding: 0px 0px;
+}
+#map-canvas {
+  height: 100%;
+  width: 100%;
+}
+.car-listing-item {
+  padding-top: 15px;
+  padding-left:15px;
+  padding-right:0px;
+}
+
+a.car-listing-link {
+  color: #565a5c;
 }
 
 /* SEARCH PAGE */
@@ -153,12 +197,12 @@ footer ul li {
   right:0;
 }
 #map-canvas {
-  height: 700px;
+  height: 713px;
 }
 
 #sidebar {
   overflow-y: scroll;
-  height: 700px;
+  height: 713px;
 }
 
 
@@ -261,9 +305,7 @@ footer ul li {
 
 
 
-.car-listing-item {
-  min-height:100px;
-}
+
 
 
 

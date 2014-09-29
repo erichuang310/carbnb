@@ -25,7 +25,9 @@ Carbnd.Views.CarListingShow = Backbone.CompositeView.extend({
     });
     this.$el.html(renderedContent);
     this.$("#navbar").css({ "background-color": "white" })
-    this.$("header").css({ "background-image": "url(/assets/lotus_front_side.jpg)" })
+    if (this.model.get("imageUrls")) {
+      this.$("header").css({ "background-image": "url(" + this.model.get("imageUrls")[0] + ")" })
+    }
     this.attachSubviews();
 
     return this;

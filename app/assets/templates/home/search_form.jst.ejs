@@ -1,20 +1,17 @@
 <form class="form-inline">
   <input
     class="form-control"
-    id="search-model"
-    name="model"
-    placeholder="What do you want to drive?"
+    name="address"
+    placeholder="Where do you want to drive?"
     size="40"
     type="text"
   ><input
-    class="form-control datepicker"
-    id="search-start-date"
+    class="form-control date-picker"
     name="start_date"
     placeholder="Start Date"
     type="text"
   ><input
-    class="form-control datepicker"
-    id="search-end-date"
+    class="form-control date-picker"
     name="end_date"
     placeholder="End Date"
     type="text"
@@ -26,5 +23,7 @@
 </form>
 
 <script>
-  $(".date-picker").datepicker();
+  $(function () {
+    $(".date-picker").datepicker({ minDate: 0 });
+  })
 </script>

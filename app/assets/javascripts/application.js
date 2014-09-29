@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery-ui.min
+//= require bootstrap-slider
 //= require jquery_ujs
 //= require pubsub
 //= require jquery.serializejson.min

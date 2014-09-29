@@ -1,8 +1,11 @@
 <div class="car-listing-mouseover">
   <div class="carousel-container"></div>
 
-  <a href="#/car_listings/<%= carListing.id %>">
-    <strong><%= carListing.get("title") %></strong>
+  <div class="row row-offset-2"></div>
+  <a
+    class="car-listing-link"
+    href="#/car_listings/<%= carListing.id %>">
+    <%= carListing.get("title") %>
     <br>
     <%= carListing.get("car_make") %> <%= carListing.get("car_model") %>
   </a>

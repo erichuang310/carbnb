@@ -12,17 +12,19 @@ module Api
     end
 
     def index
+      p params
+      # puts search_params
       @car_listings = CarListing.includes(:images).limit(6);
       render :index
     end
 
     def show
-      @car_listing = CarListing.find(params[:id])
+      @car_listing = CarListing.includes(:images).find(params[:id])
       @include_requests = false
 
       if @car_listing
-        render json: @car_listing
-        # render :show
+        # render json: @car_listing
+        render :show
       else
         render json: ["Car listing not found"], status: :not_found
       end
@@ -39,6 +41,7 @@ module Api
       params.require(:car_listing).permit(
         :title,
         :description,
+        :address,
         :rate,
         :deposit,
         :cancellation,
