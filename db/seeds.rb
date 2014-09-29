@@ -46,7 +46,7 @@ ActiveRecord::Base.transaction do
 
   CarListing.all.each do |c|
     3.times do
-      c.images << Image.new(file_picker_url: "/assets/" + ["370z.jpg", "fj.jpg", "g63.jpg", "model_s.jpg", "smart_front_side.jpg"].sample)
+      c.images << Image.new(file_picker_url: "/assets/" + ["370z.jpg", "fj.jpg", "g63.jpg", "model_s.png", "smart_front_side.jpg", "tesla.jpg", "exige.jpg"].sample)
     end
     sleep 0.5
     c.save
