@@ -18,6 +18,10 @@
  *= require_self
  */
 
+#map-container {
+  padding-left: 0px;
+  padding-right: 0px;
+}
 .carousel-control .control-left,
 .carousel-control .control-right {
   position: absolute;

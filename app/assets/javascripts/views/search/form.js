@@ -2,9 +2,7 @@ Carbnd.Views.SearchForm = Backbone.CompositeView.extend({
   template: JST["search/form"],
 
   events: {
-    "change form": "handleFormSubmission",
-    // "changeDate .date-picker": "handleFormSubmission",
-    // "submit form": "handleFormSubmission"
+    "change form": "handleFormSubmission"
   },
 
   handleFormSubmission: function (event) {
@@ -15,7 +13,6 @@ Carbnd.Views.SearchForm = Backbone.CompositeView.extend({
     Carbnd.searchParams.car_type = formParams.car_type;
     Carbnd.searchParams.rate_min = formParams.rate_min;
     Carbnd.searchParams.rate_max = formParams.rate_max;
-    debugger;
     Carbnd.carListings.fetch({ data: Carbnd.searchParams });
     PubSub.publish('carListings query params updated', this);
   },
