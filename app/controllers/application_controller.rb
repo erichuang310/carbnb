@@ -24,8 +24,9 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_logged_in
-    # 401
-    # redirect_to new_session_url unless logged_in?
+    unless current_user
+      render json: ["Please log in first"], status: :unauthorized
+    end
   end
 
 end

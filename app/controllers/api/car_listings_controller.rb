@@ -1,5 +1,6 @@
 module Api
   class CarListingsController < ApiController
+    before_action :ensure_logged_in, only: [:create]
 
     def create
       @car_listing = current_user.car_listings.new(car_listing_params)

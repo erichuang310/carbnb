@@ -1,5 +1,6 @@
 module Api
   class RequestsController < ApiController
+    before_action :ensure_logged_in, only: [:create]
 
     def create
       s_date = DateTime.strptime(params[:request][:start_date], "%m/%d/%Y")

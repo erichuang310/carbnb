@@ -39,7 +39,13 @@ Carbnd.Views.LayoutsNavbar = Backbone.CompositeView.extend({
   },
 
   logoutCurrentUser: function (user) {
-    Carbnd.currentUser.clear();
+    $.ajax({
+      url: "/api/session",
+      type: "DELETE",
+      success: function (model, resp) {
+        Carbnd.currentUser.clear();
+      }
+    });
   },
 
   render: function () {

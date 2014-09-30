@@ -4,10 +4,15 @@ Carbnd.Views.AuthModal = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     this.type = options.type;
+    if (this.type === "login") {
+      Carbnd.loginModalView = this;
+    } else {
+      Carbnd.signupModalView = this;
+    }
   },
 
   events: {
-    "hidden.bs.modal": "hide",
+    "hidden.bs.modal": "handleModalHide",
     "submit #login-form": "handleLogin",
     "submit #signup-form": "handleSignup"
   },
@@ -22,7 +27,7 @@ Carbnd.Views.AuthModal = Backbone.CompositeView.extend({
       type: "POST",
       data: userParams,
       success: function (model, resp) {
-        that.hide();
+        that.$("#login-modal").modal("hide");
         that.loginCurrentUser(model);
       },
       error: function (model, resp) {
@@ -39,7 +44,7 @@ Carbnd.Views.AuthModal = Backbone.CompositeView.extend({
 
     user.save({}, {
       success: function (model, resp) {
-        that.hide();
+        that.$("#signup-modal").modal("hide");
         that.loginCurrentUser(model.attributes);
       },
       error: function (model, resp) {
@@ -60,9 +65,7 @@ Carbnd.Views.AuthModal = Backbone.CompositeView.extend({
     this.$("input[type=password]").val("");
   },
 
-  hide: function () {
-
-    this.$el.contents().modal("hide");
+  handleModalHide: function () {
     this.$("#flash-message").empty();
     this.$("input[type=text]").val("");
     this.$("input[type=password]").val("");

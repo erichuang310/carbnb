@@ -14,4 +14,12 @@
   $(document).ready(function(){
     Carbnd.initialize();
   });
+
+  $( document ).ajaxError(function( event, request, settings ) {
+    if (request.status === 401) {
+      Carbnd.loginModalView.addFlashErrors(request.responseJSON);
+      $("#login-modal").modal("show");
+    }
+  });
+
 </script>
