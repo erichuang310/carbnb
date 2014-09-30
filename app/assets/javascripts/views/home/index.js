@@ -54,8 +54,20 @@ Carbnd.Views.HomeIndex = Backbone.CompositeView.extend({
   render: function () {
     var renderedContent = this.template();
     this.$el.html(renderedContent);
-    this.$("header").css({ "background-image": "url(/assets/bmw_m3_front.jpg)" })
     this.attachSubviews();
+
+
+    $(function(){
+      [$("footer"), $("header")].forEach(function(obj){
+        var $obj = $(obj);
+        $(window).scroll(function() {
+          console.log("index");
+          var yPos = -(($(window).scrollTop()) / $obj.data('speed')) - 20;
+          var coords = '50% '+ yPos + 'px';
+          $(obj).css({ backgroundPosition: coords });
+        });
+      });
+    });
 
     return this;
   }

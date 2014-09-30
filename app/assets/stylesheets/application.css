@@ -17,6 +17,33 @@
  *= require_tree .
  *= require_self
  */
+
+
+/* Header */
+header {
+  position: relative;
+  text-align: center;
+  min-height: 600px;
+  background-size: cover;
+}
+
+header#home {
+  background: url(/assets/bmw_m3_front.jpg) 50% -20px no-repeat;
+  position: relative;
+  text-align: center;
+  background-size: cover;
+  min-height: 600px;
+}
+
+header#car-listing-header {
+  background: 50% -100px no-repeat;
+  position: relative;
+  background-size: cover;
+  text-align: center;
+  min-height: 600px;
+}
+
+
 .car-listing-description {
   padding: 10px;
     /*border: 1px solid darkfGrey;*/
@@ -27,8 +54,6 @@
   opacity: 0.95;
 }
 .car-listing-mouseover:hover {
-  /*border: 2px solid darkGrey;*/
-  /*background-color: black;*/
   opacity: 1.0;
 }
 .pac-item {
@@ -85,15 +110,6 @@ html, body {
   -webkit-appearance: none;
   -webkit-border-radius: 2px;
 }
-/* Header */
-header#home {
-  position: relative;
-  text-align: center;
-  min-height: 600px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
 
 
 #content {
@@ -121,6 +137,7 @@ header#home {
   border: 0;
   border-bottom: 1px solid lightGrey;
   padding-left: 15px;
+  border-radius: 0px;
 }
 #home .navbar {
   border-bottom: 0px;
