@@ -14,7 +14,6 @@ Carbnd.Views.HomeIndex = Backbone.CompositeView.extend({
     this.addSubview("nav", navbarView);
   },
 
-
   addSearchForm: function () {
     var searchFormView = new Carbnd.Views.HomeSearchForm();
     this.addSubview("#home-search", searchFormView);

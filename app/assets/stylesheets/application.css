@@ -12,16 +12,11 @@
  *
  *= require bootstrap.min
  *= require jasny-bootstrap.min
- *= require bootstrap-slider
+ *= require jquery.nouislider.min
  *= require font-awesome
  *= require_tree .
  *= require_self
  */
-
-* {
-  /*border: 1px solid black;*/
-}
-
 
 .carousel-control .control-left,
 .carousel-control .control-right {

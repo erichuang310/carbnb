@@ -28,17 +28,19 @@
 
   <!-- car type -->
   <div class="row row-offset-6">
-      <div class="col-xs-3">
-        <label>Car Type</label>
-      </div>
+    <div class="col-xs-3">
+      <label>Car Type</label>
+    </div>
     <div class="col-xs-9">
+
       <div class="row">
         <div class="col-xs-3">
           <label class="checkbox-inline">
             <input
               type="checkbox"
               name="car_type[]"
-              value="sport">
+              value="Sport"
+              checked>
               Sport
           </label>
         </div>
@@ -47,7 +49,9 @@
             <input
               type="checkbox"
               name="car_type[]"
-              value="economy">Economy
+              value="Economy"
+              checked>
+              Economy
           </label>
         </div>
         <div class="col-xs-3">
@@ -55,17 +59,19 @@
             <input
               type="checkbox"
               name="car_type[]"
-              value="luxury">
+              value="Luxury"
+              checked>
               Luxury
           </label>
         </div>
         <div class="col-xs-3">
           <label class="checkbox-inline">
-          <input
-            type="checkbox"
-            name="car_type[]"
-            value="utility">
-            Utility
+            <input
+              type="checkbox"
+              name="car_type[]"
+              value="Utility"
+              checked>
+              Utility
           </label>
         </div>
       </div>
@@ -84,47 +90,56 @@
         <div class="col-xs-1 text-center" id="rate-min">
           $50
         </div>
-
         <div class="col-xs-9">
+          <div id="slider-handles"></div>
           <input
-            id="rate-range"
-            name="rate_range"
-            data-slider-tooltip="hide"
-            type="text"
-            value=""
-            data-slider-min="50"
-            data-slider-max="500"
-            data-slider-step="5"
-            data-slider-value="[50,500]"
-            style="width:100%;"/>
+            type="hidden"
+            name="rate_min"
+            id="hidden-rate-min"
+            value="50">
+          <input
+            type="hidden"
+            name="rate_max"
+            id="hidden-rate-max"
+            value="500">
         </div>
-
         <div class="col-xs-1 text-center" id="rate-max">
           $500
         </div>
       </div>
     </div>
   </div>
-  <div class="row row-offset-6">
-    <div class="col-xs-12">
-      <input
-        class="form-control"
-        type="submit"
-        value="Find me my motha fucking car!">
-    </div>
-  </div>
 <form>
 
 <script>
   $(function() {
-    var slider = $("#rate-range").slider({});
-    slider.on("slide", function(event, ui) {
-      var min = event.value[0];
-      var max = event.value[1];
-      $("#rate-min").html("$" + min);
-      $("#rate-max").html("$" + max);
+
+    $('#slider-handles').noUiSlider({
+    	start: [ 50, 500 ],
+      step: 25,
+    	connect: true,
+    	range: {
+    		'min': [  50 ],
+    		'max': [ 500 ]
+    	},
+    	format: wNumb({
+    		decimals: 0
+    	})
     });
 
+    $("#slider-handles").on({
+    	slide: function(event, ui){
+        var min = ui[0];
+        var max = ui[1];
+        $("#rate-min").html("$" + min);
+        $("#rate-max").html("$" + max);
+        $("#hidden-rate-min").val(min);
+        $("#hidden-rate-max").val(max);
+    	},
+      set: function () {
+        $("#hidden-rate-min").trigger("change");
+      }
+    });
 
     $(".date-picker").datepicker({ minDate: 0 });
   });

@@ -1,9 +1,14 @@
 Carbnd.Views.CarListingsIndex = Backbone.CompositeView.extend({
   template: JST["car_listings/index"],
   // className: "container-fluid",
+  updateCarListings: function () {
+    Carbnd.carListings.fetch({ data: Carbnd.searchParams })
+  },
 
   initialize: function () {
     this.addNavbar();
+
+    var token = PubSub.subscribe( 'carListings query params updated', this.updateCarListings );
     this.addMap();
     this.addSearch();
 
@@ -23,7 +28,7 @@ Carbnd.Views.CarListingsIndex = Backbone.CompositeView.extend({
 
   addMap: function () {
     var mapView = new Carbnd.Views.SearchMap();
-    this.addSubview("#map", mapView);
+    this.addSubview("#map-container", mapView);
   },
 
   addSearch: function () {

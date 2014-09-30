@@ -19,5 +19,4 @@ Carbnd.Collections.CarListings = Backbone.Collection.extend({
     return carListing;
   }
 });
-
 Carbnd.carListings = new Carbnd.Collections.CarListings();

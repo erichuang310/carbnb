@@ -4,7 +4,10 @@ Carbnd.Views.SearchMap = Backbone.View.extend({
 
   initialize: function () {
     this.mapOptions = {
-      center: { lat: 37.7658465 , lng: -122.4422514 },
+      center: {
+        lat: Carbnd.searchParams.lat,
+        lng: Carbnd.searchParams.lng
+      },
       zoom: 12
     };
     this.infoWindows = [];
@@ -22,16 +25,29 @@ Carbnd.Views.SearchMap = Backbone.View.extend({
     google.maps.event.addListener(this.map, 'idle', function () {
       var northEastPoint = this.map.getBounds().getNorthEast();
       var southWestPoint = this.map.getBounds().getSouthWest();
-      var topBound = northEastPoint.lat();
-      var rightBound = northEastPoint.lng();
-      var bottomBound = southWestPoint.lat();
-      var leftBound = southWestPoint.lng();
-      console.log("Map settled. Here are the coords:");
-      console.log("Top     = " + topBound);
-      console.log("Right   = " + rightBound);
-      console.log("Bottom  = " + bottomBound);
-      console.log("Left    = " + leftBound);
+      var topBorder = northEastPoint.lat();
+      var rightBorder = northEastPoint.lng();
+      var bottomBorder = southWestPoint.lat();
+      var leftBorder = southWestPoint.lng();
+
+      Carbnd.searchParams.lat = this.map.center.k;
+      Carbnd.searchParams.lat = this.map.center.B;
+      Carbnd.searchParams.top_border = topBorder;
+      Carbnd.searchParams.bottom_border = bottomBorder;
+      Carbnd.searchParams.left_border = leftBorder;
+      Carbnd.searchParams.right_border = rightBorder;
+
+      PubSub.publish('carListings query params updated', this);
     }.bind(this));
+  },
+
+  getBounds:function () {
+    var northEastPoint = this.map.getBounds().getNorthEast();
+    var southWestPoint = this.map.getBounds().getSouthWest();
+    var top_bound = northEastPoint.lat();
+    var right_bound = northEastPoint.lng();
+    var bottom_bound = southWestPoint.lat();
+    var leftBound = southWestPoint.lng();
   },
 
   addCarListing: function (pubSubMsg, carListingView) {
@@ -95,13 +111,13 @@ Carbnd.Views.SearchMap = Backbone.View.extend({
       }
     );
     marker.setIcon({
-          path: fontawesome.markers.CAR,
-          scale: 0.3,
-          strokeWeight: 0.2,
-          strokeColor: 'black',
-          strokeOpacity: 1,
-          fillColor: carListingView.model.get("car_color"),
-          fillOpacity: 0.8,
+      path: fontawesome.markers.CAR,
+      scale: 0.3,
+      strokeWeight: 0.2,
+      strokeColor: 'black',
+      strokeOpacity: 1,
+      fillColor: carListingView.model.get("car_color"),
+      fillOpacity: 0.8,
     });
   },
 
@@ -114,9 +130,10 @@ Carbnd.Views.SearchMap = Backbone.View.extend({
   render: function () {
     var renderedContent = this.template();
     this.$el.html(renderedContent);
-    this.addMap();
-    google.maps.event.trigger(this.map, 'resize');
-    console.log("map rendering");
+
+    setTimeout(function() {
+      this.addMap();
+    }.bind(this), 0)
 
     return this;
   }

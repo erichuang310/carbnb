@@ -12,9 +12,21 @@ module Api
     end
 
     def index
-      p params
-      # puts search_params
-      @car_listings = CarListing.includes(:images).limit(6);
+      @car_listings = CarListing.includes(:images).where(
+        "latitude between ? AND ?",
+        search_params[:bottom_border],
+        search_params[:top_border]
+      ).where(
+        " longitude between ? and ?",
+        search_params[:left_border],
+        search_params[:right_border]
+      ).where(
+        car_type: search_params[:car_type]
+      ).where(
+        "rate between ? AND ?",
+        search_params[:rate_min],
+        search_params[:rate_max]
+      )
       render :index
     end
 
@@ -61,9 +73,9 @@ module Api
         :bottom_border,
         :start_date,
         :end_date,
-        :car_type,
-        :min_price,
-        :max_price
+        :rate_min,
+        :rate_max,
+        car_type: []
       )
     end
   end

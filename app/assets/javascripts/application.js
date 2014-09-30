@@ -12,7 +12,8 @@
 //
 //= require jquery
 //= require jquery-ui.min
-//= require bootstrap-slider
+//= require jquery.nouislider.all.min
+//= require jquery.geocomplete
 //= require jquery_ujs
 //= require pubsub
 //= require jquery.serializejson.min
