@@ -11,10 +11,10 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery_ujs
 //= require jquery-ui.min
 //= require jquery.nouislider.all.min
 //= require jquery.geocomplete
-//= require jquery_ujs
 //= require pubsub
 //= require jquery.serializejson.min
 //= require bootstrap-datepicker

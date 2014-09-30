@@ -10,7 +10,3 @@ window.Carbnd = {
     Backbone.history.start();
   }
 };
-
-$(document).ready(function(){
-  Carbnd.initialize();
-});

@@ -1,0 +1,24 @@
+<% if (Carbnd.currentUser.get("name")) { %>
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= Carbnd.currentUser.get("name") %> <span class="caret"></span></a>
+    <ul class="dropdown-menu" role="menu">
+      <li><a href="#">Listings</a></li>
+      <li><a href="#">Requests</a></li>
+      <li><a href="#" class="logout">Log Out</a></li>
+    </ul>
+  </li>
+<% } else { %>
+  <li><a href="#" class="login">Log In</a></li>
+  <li><a href="#" class="signup">Sign Up</a></li>
+<% } %>
+
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <span class="caret"></span></a>
+  <ul class="dropdown-menu" role="menu">
+    <li><a href="#">Visit the Help Center</a></li>
+    <li><a href="#">Getting Started<a></li>
+    <li><a href="#">How does Carbnd work?</a></li>
+  </ul>
+</li>
+
+<li><a href="/#/new_car_listing">List Your Ride</a></li>

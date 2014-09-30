@@ -1,4 +1,4 @@
-Carbnd.Views.SearchMap = Backbone.View.extend({
+Carbnd.Views.SearchMap = Backbone.CompositeView.extend({
   template: JST["search/map"],
   id: "map-view",
 
@@ -30,8 +30,8 @@ Carbnd.Views.SearchMap = Backbone.View.extend({
       var bottomBorder = southWestPoint.lat();
       var leftBorder = southWestPoint.lng();
 
-      Carbnd.searchParams.lat = this.map.center.k;
-      Carbnd.searchParams.lat = this.map.center.B;
+      Carbnd.searchParams.lat = this.map.center.lat();
+      Carbnd.searchParams.lng = this.map.center.lng();
       Carbnd.searchParams.top_border = topBorder;
       Carbnd.searchParams.bottom_border = bottomBorder;
       Carbnd.searchParams.left_border = leftBorder;
@@ -133,6 +133,7 @@ Carbnd.Views.SearchMap = Backbone.View.extend({
 
     setTimeout(function() {
       this.addMap();
+      google.maps.event.trigger(this.map, "resize");
     }.bind(this), 0)
 
     return this;

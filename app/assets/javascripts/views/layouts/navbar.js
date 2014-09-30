@@ -2,13 +2,20 @@ Carbnd.Views.LayoutsNavbar = Backbone.CompositeView.extend({
   template: JST["layouts/navbar"],
 
   initialize: function () {
+    this.addUsersUl();
     this.addLoginModal();
     this.addSignupModal();
   },
 
   events: {
     "click a.login": "showLoginModal",
-    "click a.signup": "showSignupModal"
+    "click a.signup": "showSignupModal",
+    "click a.logout": "logoutCurrentUser"
+  },
+
+  addUsersUl: function () {
+    var userUlView = new Carbnd.Views.LayoutsUserUl();
+    this.addSubview("#navbar-user-collapse", userUlView);
   },
 
   addLoginModal: function () {
@@ -31,9 +38,14 @@ Carbnd.Views.LayoutsNavbar = Backbone.CompositeView.extend({
     this.$("#signup-modal").modal("show");
   },
 
+  logoutCurrentUser: function (user) {
+    Carbnd.currentUser.clear();
+  },
+
   render: function () {
     var renderedContent = this.template();
     this.$el.html(renderedContent);
+    this.attachSubviews();
 
     return this;
   }

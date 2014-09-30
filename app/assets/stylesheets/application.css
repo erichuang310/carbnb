@@ -17,7 +17,31 @@
  *= require_tree .
  *= require_self
  */
-
+.car-listing-description {
+  padding: 10px;
+    /*border: 1px solid darkfGrey;*/
+}
+.car-listing-mouseover {
+  border: 1px solid darkGrey;
+  /*background-color: black;*/
+  opacity: 0.95;
+}
+.car-listing-mouseover:hover {
+  /*border: 2px solid darkGrey;*/
+  /*background-color: black;*/
+  opacity: 1.0;
+}
+.pac-item {
+  padding: 5px 10px;
+}
+.pac-container {
+  border-right: 1px solid darkGrey;
+  border-left: 1px solid darkGrey;
+  width: 150%;
+}
+.pac-container .pac-item:last-child {
+  padding-bottom: 10px;
+}
 #map-container {
   padding-left: 0px;
   padding-right: 0px;
@@ -72,6 +96,10 @@ header#home {
 }
 
 
+#content {
+  min-width: 1200px;
+  font-family: "Gotham SSm A","Gotham SSm B","Helvetica Neue",Helvetica-,Arial,sans-serif;
+}
 #home-search {
   bottom: 0;
   position: absolute;
@@ -134,9 +162,9 @@ header#home {
 }
 
 footer {
-  height: 280px;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  height: 275px;
+  padding-top: 50px;
+  padding-bottom: 50px;
   background-image: url(/assets/pavement.jpg);
   background-position: center;
   color: white;
@@ -158,8 +186,16 @@ footer ul li {
   margin: 0 auto;
 }
 
-#discoveries, #intro-message, #details {
+#discoveries, #intro-message, #footer-message, #details {
   background-color: #f5f5f5;
+}
+
+#footer-message .col-xs-8 h2 {
+  margin-top: 3px;
+}
+#footer-message {
+  padding-top: 0px;
+  padding-bottom: 25px;
 }
 
 #car-listings {
@@ -168,7 +204,7 @@ footer ul li {
 }
 
 #intro-message {
-  padding-top: 15px;
+  padding-top: 20px;
 }
 
 #map {
@@ -203,115 +239,3 @@ a.car-listing-link {
   overflow-y: scroll;
   height: 713px;
 }
-
-
- /*html,body
-{
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-    overflow-x: hidden;
-}*/
-
-
- /*#request-start-date, #request-end-date {
-
- }*/
-
-/** {
-  box-sizing:border-box;
-}*/
-/*#nav {
-  position:absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 50px;
-  margin-bottom: 0px;
-}*/
-/*html, body {
-  height: 100%;
-  width: 100%;
-}*/
-/*#content {
-  position: absolute;
-}
-#content, #car-listings-index #map, #map-view, #map-canvas {
-  position: absolute;
-  height: 100%;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-}
-#map {
-  position: absolute;
-  height: 100%;
-  top:50px;
-  left:0px;
-  right:0px;
-}*/
-
-/*
-.row {
-  height: 100%;
-}
-
-#car-listings-index, #map, #map-view, #map-canvas {
-  height: 100%;
-}*/
-/*
-#map, .row {
-  height: 100%;
-}
-
-
-#map-canvas {
-  height:650px;
-}
-
- #search-index {
-    position:fixed;
-    top:0px;
-    bottom:0px;
-    left:0px;
-    right:0px;
-    height: 100%
-    width: 100%
-}
-
- #search-index #sidebar {
-   overflow-y: scroll;
-   height: 650px;
- }
-
-
-
-.container-fluid{
-  min-width: 1000px;
-}
-
-
-#new-request {
-  padding: 0px 15px;
-  border: 1px solid lightGrey;
-}
-
-.fixed {
-    position: fixed;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-*/

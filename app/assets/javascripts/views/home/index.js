@@ -6,6 +6,7 @@ Carbnd.Views.HomeIndex = Backbone.CompositeView.extend({
     this.addSearchForm();
     this.addIntroMessage();
     this.addDiscoveries();
+    // this.addFooterMessage();
     this.addFooter();
   },
 
@@ -31,6 +32,18 @@ Carbnd.Views.HomeIndex = Backbone.CompositeView.extend({
   addDiscoveries: function () {
     var discoveriesView = new Carbnd.Views.HomeDiscoveries();
     this.addSubview("div#discoveries", discoveriesView);
+  },
+
+  addFooterMessage: function () {
+    var messageView = new Carbnd.Views.LayoutsPanel({
+      className: "col-xs-8 col-xs-offset-2 text-center",
+      title: "About Us",
+      body: "Carbnd is evolving the way we own cars. By connecting drivers and \
+            unused cars, we enable car owners to give back to the community. \
+            Since our founding in 2014, Carbnd has been rapidly expanding through \
+            all the major cities in the US. We are dedicated to building the community."
+    });
+    this.addSubview("div#footer-message", messageView);
   },
 
   addFooter: function () {

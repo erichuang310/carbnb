@@ -13,7 +13,6 @@ Carbnd.Views.LayoutsPanel = Backbone.CompositeView.extend({
       body: this.body
     });
     this.$el.html(renderedContent);
-    this.attachSubviews();
 
     return this;
   }

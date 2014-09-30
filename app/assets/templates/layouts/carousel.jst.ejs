@@ -3,7 +3,7 @@
   <div class="carousel-inner">
     <% for (var i = 0; i < carListing.get("imageUrls").length; i++) { %>
       <div class="<%= i === 0 ? 'item active' : 'item' %>">
-        <img src="<%= carListing.get("imageUrls")[i] %>" class="img-responsive"></img>
+        <img src="<%= carListing.get("imageUrls")[i] %>"></img>
       </div>
     <% } %>
   </div>
