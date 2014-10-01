@@ -24,8 +24,6 @@ class Request < ActiveRecord::Base
   #
   # validate  :start_date_before_end_date
 
-  validate  :leaser_is_not_leasee
-
   belongs_to(
     :leasee,
     class_name: "User",
@@ -78,17 +76,11 @@ class Request < ActiveRecord::Base
     errors.add(:end_date, "must be after the start date") if start_date > end_date
   end
 
-  def leaser_is_not_leasee
-    errors.add(:leasee_id, "can't be the leaser") if leasee == car_listing.leaser
-  end
-
   def overlapping_requests
   Request.where("(:id IS NULL) OR (id != :id)", id: self.id).where(car_listing_id: car_listing_id).where(
     <<-SQL,start_date: start_date, end_date: end_date)
-      ((start_date BETWEEN :start_date AND :end_date) OR
-      (end_date BETWEEN :start_date AND :end_date)) OR
-      ((:start_date BETWEEN start_date AND end_date) OR
-      (:end_date BETWEEN start_date AND end_date))
+      ((start_date < :end_date) OR
+      (end_date > :start_date))
     SQL
   end
 

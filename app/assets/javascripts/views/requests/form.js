@@ -2,7 +2,7 @@ Carbnd.Views.RequestForm = Backbone.CompositeView.extend({
   template: JST["requests/form"],
 
   initialize: function (options) {
-    this.carListingId = options.carListingId
+    this.carListing = options.carListing
   },
 
   events: {
@@ -12,13 +12,13 @@ Carbnd.Views.RequestForm = Backbone.CompositeView.extend({
   handleFormSubmission: function () {
     event.preventDefault();
     var formParams = $(event.target).serializeJSON();
-    formParams.request.car_listing_id = this.carListingId
+    formParams.request.car_listing_id = this.carListing.id;
     var request = new Carbnd.Models.Request(formParams);
 
     var that = this;
     request.save({}, {
       success: function (model, resp) {
-        alert("worked");
+        debugger;
       },
       error : function (model, resp) {
         alert(resp.responseJSON)

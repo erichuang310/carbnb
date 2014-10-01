@@ -3,8 +3,8 @@ Carbnd.Views.CarListingShow = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.addNavbar();
-    this.addRequestForm();
     this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model, "sync", this.addRequestSidebar);
   },
 
   addNavbar: function () {
@@ -14,9 +14,26 @@ Carbnd.Views.CarListingShow = Backbone.CompositeView.extend({
 
   addRequestForm: function () {
     var requestFormView = new Carbnd.Views.RequestForm({
-      carListingId: this.model.id
+      carListing: this.model
     });
-    this.addSubview("div#new-request", requestFormView);
+    this.addSubview("#request-sidebar", requestFormView);
+  },
+
+  addRequestsIndex: function () {
+    var requestsIndexView = new Carbnd.Views.RequestsIndex({
+      collection: this.model.requests()
+    });
+    this.addSubview("#request-sidebar", requestsIndexView);
+  },
+
+  addRequestSidebar: function () {
+    if (this.model.get("leaser_id") == Carbnd.currentUser.get("id")) {
+      this.addRequestsIndex();
+      console.log("rendering index");
+    } else {
+      this.addRequestForm();
+      console.log("rendering form");
+    }
   },
 
   render: function () {
@@ -24,10 +41,11 @@ Carbnd.Views.CarListingShow = Backbone.CompositeView.extend({
       carListing: this.model
     });
     this.$el.html(renderedContent);
-    this.$("#navbar").css({ "background-color": "white" })
-    if (this.model.get("imageUrls")) {
-      this.$("#car-listing-header").css({ "background-image": "url(" + this.model.get("imageUrls")[0] + ")" })
-    }
+    // if (this.model.get("imageUrls")) {
+    //   this.$("#car-listing-header").css({ "background-image": "url(" + this.model.get("imageUrls")[0] + ")" })
+    // }
+    console.log("rendering");
+
     this.attachSubviews();
 
     $(function(){

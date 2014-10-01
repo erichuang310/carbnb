@@ -19,17 +19,15 @@ Jbuilder.new do
   )
   json.imageUrls @car_listing.images.pluck(:file_picker_url)
 
-  # json.car @car_listing.car
-
-  # if (@include_requests)
-  #   json.i @car_listing.requests do |request|
-  #     json.(
-  #       request,
-  #       :id,
-  #       :start_date,
-  #       :end_date,
-  #       :status
-  #     )
-  #   end
-  # end
+  if (@include_requests)
+    json.requests @car_listing.requests do |request|
+      json.(
+        request,
+        :id,
+        :start_date,
+        :end_date,
+        :status
+      )
+    end
+  end
 end

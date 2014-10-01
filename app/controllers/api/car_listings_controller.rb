@@ -32,11 +32,11 @@ module Api
     end
 
     def show
-      @car_listing = CarListing.includes(:images).find(params[:id])
+      @car_listing = CarListing.includes(:images, :requests).find(params[:id])
       @include_requests = false
+      @include_requests = true if @car_listing.leaser == current_user
 
       if @car_listing
-        # render json: @car_listing
         render :show
       else
         render json: ["Car listing not found"], status: :not_found

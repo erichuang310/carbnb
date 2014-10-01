@@ -64,6 +64,10 @@ class User < ActiveRecord::Base
     "#{ first_name } #{ last_name }".titleize
   end
 
+  def owns_car_listing?(car_listing)
+    self.id == car_listing.leaser_id
+  end
+  
   # Login
 
   def self.find_by_credentials(email, password)

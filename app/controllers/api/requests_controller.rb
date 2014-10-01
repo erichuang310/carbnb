@@ -20,6 +20,25 @@ module Api
       end
     end
 
+    def index
+      @requests = current_user.requests
+      if @requests
+        render json: @requests
+      else
+        render json @requests.errors.full_messages, status: :unprocessable_entity
+      end
+    end
+
+    def update
+      @request = Request.find(params[:id])
+      if request_params[:status] == "APPROVED"
+        @request.approve!
+      else
+        @request.deny!
+      end
+      render json: @request, status: :ok
+    end
+
     private
     def request_params
       params.require(:request).permit(
