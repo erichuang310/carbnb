@@ -1,5 +1,19 @@
 Start Date: <%= request.escape("start_date") %><br>
 End Date: <%= request.escape("end_date") %><br>
-Status: <%= request.escape("status") %><br>
-<button data-status="APPROVED">Approve</button><br>
-<button data-status="DENIED">Deny</button>
+Status: <%= request.escape("status") %><br><br>
+<div class="row">
+  <div class="col-xs-6">
+    <button
+      data-status="APPROVED"
+      class="form-control">
+      <font color="green">Approve</font>
+    </button>
+  </div>
+  <div class="col-xs-6">
+    <button
+      data-status="DENIED"
+      class="form-control">
+      <font color="red">Deny</font>
+    </button>
+  </div>
+</div>

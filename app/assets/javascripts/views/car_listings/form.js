@@ -87,8 +87,6 @@ Carbnd.Views.CarListingsForm = Backbone.CompositeView.extend({
     var carListing = new Carbnd.Models.CarListing(formParams);
     var that = this;
     carListing.save({}, {
-
-      global: true,
       success: function (model, resp) {
         Backbone.history.navigate("#/car_listings/" + carListing.id)
       },
