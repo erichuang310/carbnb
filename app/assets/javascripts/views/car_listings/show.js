@@ -43,16 +43,31 @@ Carbnd.Views.CarListingShow = Backbone.CompositeView.extend({
   },
 
   initParallax: function () {
+    var $header = this.$("header");
+    var headerHeight = $header.height();
+    var headerSpeed = $header.data('speed');
+    var $footer = this.$("footer");
+    var footerSpeed = $footer.data('speed');
+    var $requestSidebar = $("#request-sidebar");
+    var windowHeight = $(window).height();
+
     $(window).on("scroll", function (e) {
-      if ($(window).scrollTop() < this.$("header").height()) {
-        var yPos = -(($(window).scrollTop()) / this.$("header").data('speed'));
+      var windowScrollTop = $(window).scrollTop();
+
+      if (windowScrollTop < headerHeight) {
+        var yPos = -(windowScrollTop / headerSpeed);
         var coords = '50% '+ yPos + 'px';
-        this.$("header").css({ backgroundPosition: coords });
+        $header.css({ backgroundPosition: coords });
       }
-      if ($(window).scrollTop() + $(window).height() > $("footer").offset().top) {
-        var yPos = -(($(window).scrollTop()) / this.$("footer").data('speed'));
+      if (windowScrollTop + windowHeight > $footer.offset().top) {
+        var yPos = -(windowScrollTop / footerSpeed);
         var coords = '50% '+ yPos + 'px';
-        this.$("footer").css({ backgroundPosition: coords });
+        $footer.css({ backgroundPosition: coords });
+      }
+      if (windowScrollTop > 300) {
+        $requestSidebar.addClass("affix-top");
+      } else {
+        $requestSidebar.removeClass("affix-top");
       }
     });
   },

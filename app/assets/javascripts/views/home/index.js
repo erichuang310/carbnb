@@ -39,16 +39,23 @@ Carbnd.Views.HomeIndex = Backbone.CompositeView.extend({
   },
 
   initParallax: function () {
+    var $header = this.$("header");
+    var headerSpeed = $header.data('speed');
+    var $footer = this.$("footer");
+    var footerSpeed = $footer.data('speed');
+    var windowHeight = $(window).height();
+
     $(window).on("scroll", function (e) {
-      if ($(window).scrollTop() < this.$("header").height()) {
-        var yPos = -(($(window).scrollTop()) / this.$("header").data('speed'));
+      var windowScrollTop = $(window).scrollTop();
+      if (windowScrollTop < windowHeight) {
+        var yPos = -(windowScrollTop / headerSpeed);
         var coords = '50% '+ yPos + 'px';
-        this.$("header").css({ backgroundPosition: coords });
+        $header.css({ backgroundPosition: coords });
       }
-      if ($(window).scrollTop() + $(window).height() > $("footer").offset().top) {
-        var yPos = -(($(window).scrollTop()) / this.$("footer").data('speed'));
+      if (windowScrollTop + windowHeight > $footer.offset().top) {
+        var yPos = -(windowScrollTop / footerSpeed);
         var coords = '50% '+ yPos + 'px';
-        this.$("footer").css({ backgroundPosition: coords });
+        $footer.css({ backgroundPosition: coords });
       }
     });
   },

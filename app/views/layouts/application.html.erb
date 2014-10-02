@@ -3,13 +3,41 @@
 <head>
   <title>Carbnd</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <!-- <%= filepicker_js_include_tag %> -->
 
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_ZCXZ1m6arGvsScNYD1QtZq2fEXxbTfk&amp;libraries=places"> </script>
 </head>
   <body>
     <%= yield %>
   </body>
 </html>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_ZCXZ1m6arGvsScNYD1QtZq2fEXxbTfk&amp;libraries=places"> </script>
+
+<script>
+
+
+  $(document).ready(function(){
+    Carbnd.initialize();
+
+  });
+
+  <% if current_user %>
+    Carbnd.currentUser = new Carbnd.Models.User({
+      id: "<%= current_user.id %>",
+      name: "<%= current_user.name %>",
+      email: "<%= current_user.email %>"
+    });
+  <% else %>
+    Carbnd.currentUser = new Carbnd.Models.User();
+  <% end %>
+
+
+  $( document ).ajaxError(function( event, request, settings ) {
+    if (request.status === 401) {
+      Carbnd.loginModalView.addFlashErrors(request.responseJSON);
+      $("#login-modal").modal("show");
+    }
+  });
+
+</script>
