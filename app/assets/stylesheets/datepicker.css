@@ -10,22 +10,12 @@
 .datepicker.dropdown-menu {
   border-radius: 2px;
   width: 250px;
-  padding: 0px;
+  padding: 5px 5px;
 }
  .datepicker-days {
    margin:5px;
  }
-/*
-.datepicker {
-  content: '';
-  display: inline-block;
-  border-left: 2px solid transparent;
-  border-right: 2px solid transparent;
-  border-bottom: 2px solid #ffffff;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-}*/
+
 .datepicker > div {
   display: none;
 }
@@ -41,11 +31,11 @@
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
-  /*border: 2px solid lightGrey;*/
 }
 .datepicker td.day:hover {
   background: #E3E3E3;
   cursor: default;
+  color: #FF0000;
 }
 .datepicker td.day.disabled {
   color: #eeeeee;
@@ -76,6 +66,7 @@
 .datepicker td.active:hover:active,
 .datepicker td.active.active,
 .datepicker td.active:hover.active {
+  color: #FF0000;
 }
 .datepicker td span {
   display: block;
@@ -94,10 +85,7 @@
 }
 .datepicker td span.active {
   color: #ffffff;
-
   *background-color: #E3E3E3;
-  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-
 }
 .datepicker td span.active:hover,
 .datepicker td span.active:focus,
@@ -120,7 +108,7 @@
 }
 .datepicker th.next,
 .datepicker th.prev {
-  font-size: 21px;
+  font-size: 20px;
 }
 .datepicker thead tr:first-child th {
   cursor: default;

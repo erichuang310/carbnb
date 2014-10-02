@@ -1,11 +1,16 @@
-<header id="car-listing-header" class="row" data-speed="-5">
+
+<header id="car-listing-header" class="row" data-speed="-2">
   <div id="navbar"></div>
 </header>
+
+
+
+
 
 <div id="car-listing">
   <div id="summary">
     <div class="container">
-      <div class="row">
+      <div class="row" style="position:relative;">
         <div class="col-xs-7 col-xs-offset-1">
           <div class="panel-body">
             <div clas="row">
@@ -42,15 +47,13 @@
             </div>
           </div>
         </div>
-        <!-- TODO -->
-        <!-- <div class="col-xs-3">
+        <div class="col-xs-3">
           <div id="request-sidebar">
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
   </div>
-
 
   <div id="details">
     <div class="container">
@@ -161,12 +164,19 @@
           </div>
           <div class="row row-offset-4"></div>
         </div>
-
-        <div class="col-xs-3">
-          <div id="request-sidebar">
-          </div>
-        </div>
       </div>
     </div>
   </div>
 </div>
+
+<footer class="row" data-speed="-2"></footer>
+
+<script>
+  $(window).on("scroll", function (e) {
+    if ($(window).scrollTop() > 300) {
+      $("#request-sidebar").addClass("affix-top");
+    } else {
+      $("#request-sidebar").removeClass("affix-top");
+    }
+  });
+</script

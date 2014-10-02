@@ -1,6 +1,16 @@
 Carbnd.Collections.CarListings = Backbone.Collection.extend({
   model: Carbnd.Models.CarListing,
-  url: "/api/car_listings",
+  url: function () {
+    if (this.userId) {
+      return "/api/" + userId + "car_listings"
+    } else {
+      return "/api/car_listings"
+    }
+  },
+
+  initialize: function (models, options) {
+    this.userId = options.userId
+  },
 
   getOrFetch: function (id) {
     var carListings = this;
@@ -19,4 +29,6 @@ Carbnd.Collections.CarListings = Backbone.Collection.extend({
     return carListing;
   }
 });
-Carbnd.carListings = new Carbnd.Collections.CarListings();
+
+Carbnd.carListings = new Carbnd.Collections.CarListings([], {});
+Carbnd.currentUserCarListings = new Carbnd.Collections.CarListings([], {});

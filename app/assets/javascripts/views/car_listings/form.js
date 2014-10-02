@@ -99,7 +99,10 @@ Carbnd.Views.CarListingsForm = Backbone.CompositeView.extend({
   },
 
   addFlashErrors: function (errors) {
-    var flashMessageView = new Carbnd.Views.LayoutsFlashMessage({ messages: errors })
+    var flashMessageView = new Carbnd.Views.LayoutsFlashMessage({
+      messages: errors,
+      flashClass: "alert-danger"
+    })
     this.$("#flash-message").html(flashMessageView.render().$el);
   },
 

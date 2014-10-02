@@ -13,6 +13,8 @@
 #
 
 class Request < ActiveRecord::Base
+  default_scope  { order(:start_date => :asc) }
+
   validates :start_date,
             :end_date,
             :car_listing,
@@ -20,9 +22,13 @@ class Request < ActiveRecord::Base
             :status,
             presence: true
   #
-  # validate  :start_date_in_future
-  #
-  # validate  :start_date_before_end_date
+
+  validates :start_date,
+            date: { after_or_equal_to: Proc.new { Time.now }, message: 'is in the past' }
+  validates :end_date,
+            date: { after_or_equal_to: :start_date, message: 'is before start date'  }
+
+  validate :does_not_overlap_approved_request
 
   belongs_to(
     :leasee,
@@ -68,8 +74,10 @@ class Request < ActiveRecord::Base
 
   private
 
-  def start_date_in_future
-    errors.add(:start_date, "can't be in the past") if start_date < Date.today
+  def dates_in_future
+    if start_date < Date.today || end_date < Date.today
+      errors.add(:start_date, "can't be in the past")
+    end
   end
 
   def start_date_before_end_date
@@ -77,9 +85,10 @@ class Request < ActiveRecord::Base
   end
 
   def overlapping_requests
-  Request.where("(:id IS NULL) OR (id != :id)", id: self.id).where(car_listing_id: car_listing_id).where(
-    <<-SQL,start_date: start_date, end_date: end_date)
-      ((start_date < :end_date) OR
+  Request.where("(:id IS NULL) OR (id != :id)", id: self.id)
+  .where(car_listing_id: car_listing_id)
+  .where(<<-SQL, start_date: start_date, end_date: end_date)
+      ((start_date < :end_date) AND
       (end_date > :start_date))
     SQL
   end

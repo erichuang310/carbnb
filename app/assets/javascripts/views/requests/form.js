@@ -18,13 +18,24 @@ Carbnd.Views.RequestForm = Backbone.CompositeView.extend({
     var that = this;
     request.save({}, {
       success: function (model, resp) {
-        debugger;
+        that.$("#flash-message").empty();
+        that.addFlashMessage(resp.responseJSON, "alert-success");
+        that.$("input[type=submit]").val("Requested!")
+        that.$("input[type=submit]").css("color", "green");
       },
       error : function (model, resp) {
-        alert(resp.responseJSON)
+        that.addFlashMessage(resp.responseJSON, "alert-danger");
       }
     });
 
+  },
+
+  addFlashMessage: function (errors, flashClass) {
+    var flashMessageView = new Carbnd.Views.LayoutsFlashMessage({
+      messages: errors,
+      flashClass: flashClass
+    })
+    this.$("#flash-message").html(flashMessageView.render().$el);
   },
 
   render: function () {

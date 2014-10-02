@@ -34,8 +34,15 @@ Carbnd.Views.HomeSearchForm = Backbone.CompositeView.extend({
   render: function () {
     var renderedContent = this.template();
     this.$el.html(renderedContent);
-    this.$('.date-picker').datepicker({ minDate: 0 });
-    this.$('#address').geocomplete();
+
+    setTimeout(function () {
+      this.$('.date-picker').datepicker({
+        startDate: new Date(),
+        autoclose: true
+      });
+      this.$('#address').geocomplete();
+    }, 0);
+
 
     return this;
   }

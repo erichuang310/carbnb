@@ -19,6 +19,41 @@
  */
 
 
+#request-sidebar {
+  width: 270px;
+}
+
+.affix-top {
+  position: fixed;
+  top: 300px;
+}
+a, a:hover {
+  color: #565a5c;
+}
+.car-listing-panel-body:hover {
+  background-color:rgba(0, 0, 0, 0.1);
+}
+/*#content {*/
+  /*padding-left:0px;*/
+  /*padding-right:0px;*/
+/*}*/
+.list-group-item {
+  border-radius: 0px;
+  -webkit-appearance: none;
+  -webkit-border-radius: 2px;
+}
+#new-request-title {
+  /*background-color: #E3E3E3;*/
+  /*border-bottom: 1px solid darkGrey;*/
+}
+#request-sidebar {
+  /*border: 1px solid darkGrey;*/
+  /*padding-left: 15px;*/
+  /*padding-right: 15px;*/
+}
+.navbar {
+  background-color: white;
+}
 /* Header */
 header {
   position: relative;
@@ -28,15 +63,15 @@ header {
 }
 
 header#home {
-  background: url(/assets/bmw_m3_front.jpg) 50% -20px no-repeat;
-  position: relative;
-  text-align: center;
+  /*margin-top: -50px;*/
+  background: url(/assets/bmw_m3_front.min.jpg) 50% 0px no-repeat;
+  /*text-align: center;*/
   background-size: cover;
   min-height: 600px;
 }
 
 header#car-listing-header {
-  background: 50% -100px no-repeat;
+  background: 50% 0px no-repeat;
   position: relative;
   background-size: cover;
   text-align: center;
@@ -113,7 +148,7 @@ html, body {
 
 
 #content {
-  min-width: 1200px;
+  min-width: 1000px;
   font-family: "Gotham SSm A","Gotham SSm B","Helvetica Neue",Helvetica-,Arial,sans-serif;
 }
 #home-search {
@@ -134,13 +169,10 @@ html, body {
 /* Nav */
 .navbar {
   margin-bottom: 0;
-  border: 0;
-  border-bottom: 1px solid lightGrey;
+  /*border: 0;*/
+  border-bottom: 1px solid darkGrey;
   padding-left: 15px;
   border-radius: 0px;
-}
-#home .navbar {
-  border-bottom: 0px;
 }
 #search {
   padding: 0px 0px;
@@ -182,8 +214,11 @@ footer {
   height: 275px;
   padding-top: 50px;
   padding-bottom: 50px;
-  background-image: url(/assets/pavement.jpg);
-  background-position: center;
+  background-image: url(/assets/pavement_new.jpg);
+  /*bottom: 0;*/
+  /*background-position: center;*/
+  background-size: cover;
+  /*background: no-repeat;*/
   color: white;
 }
 footer a {

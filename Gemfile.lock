@@ -57,6 +57,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
+    date_validator (0.7.0)
+      activemodel (>= 3)
     debug_inspector (0.0.2)
     eco (1.0.0)
       coffee-script
@@ -169,6 +171,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   coffee-rails (~> 4.0.0)
+  date_validator
   faker
   filepicker-rails
   font-awesome-rails

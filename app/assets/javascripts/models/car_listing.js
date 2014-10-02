@@ -15,7 +15,6 @@ Carbnd.Models.CarListing = Backbone.Model.extend({
       delete response.requests;
     }
 
-
     return response;
   }
 })

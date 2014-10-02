@@ -1,0 +1,18 @@
+<a class="panel panel-default" style="display:block;" href="#/car_listings/<%= request.carListing.id %>">
+  <div class="panel-body car-listing-panel-body">
+    <div class="row">
+      <div class="col-xs-4">
+        <img src="<%= request.carListing.get("imageUrls")[0] %>" class="img-responsive"></img>
+      </div>
+      <div class="col-xs-8">
+        <strong><%= request.carListing.get("title") %></strong><br>
+        <li>Dates: <%= request.escape("start_date") %> - <%= request.escape("end_date") %></li>
+        <li>Status: <%= request.escape("status") %></li>
+
+        <font color="green"><i class="fa fa-check fa-lg"></i></font>
+        <font color="red"><i class="fa fa-times fa-lg"></i></font>
+      </div>
+    </div>
+
+  </div>
+</a>

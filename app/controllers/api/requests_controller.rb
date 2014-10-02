@@ -3,8 +3,13 @@ module Api
     before_action :ensure_logged_in, only: [:create]
 
     def create
-      s_date = DateTime.strptime(params[:request][:start_date], "%m/%d/%Y")
-      e_date = DateTime.strptime(params[:request][:end_date], "%m/%d/%Y")
+      unless params[:request][:start_date] == ""
+        s_date = DateTime.strptime(params[:request][:start_date], "%m/%d/%Y")
+      end
+      unless params[:request][:end_date] == ""
+        e_date = DateTime.strptime(params[:request][:end_date], "%m/%d/%Y")
+      end
+
 
       @request = Request.new(
         start_date: s_date,
@@ -14,16 +19,18 @@ module Api
       )
 
       if @request.save
-        render json: @request, status: :created
+        render json:
+          { responseJSON: ["Submit a Request"] }, status: :created
       else
         render json: @request.errors.full_messages, status: :unprocessable_entity
       end
     end
 
     def index
-      @requests = current_user.requests
+      @requests = current_user.requests.includes(car_listing: :images)
+
       if @requests
-        render json: @requests
+        render :index
       else
         render json @requests.errors.full_messages, status: :unprocessable_entity
       end

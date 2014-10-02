@@ -8,26 +8,32 @@ module Api
       if @car_listing.save
         render json: @car_listing, status: :created
       else
-        render json: @car_listing.errors.full_messages, status: :unprocessable_entity
+        render json: @car_listing.errors, status: :unprocessable_entity
       end
     end
 
     def index
-      @car_listings = CarListing.includes(:images).where(
-        "latitude between ? AND ?",
-        search_params[:bottom_border],
-        search_params[:top_border]
-      ).where(
-        " longitude between ? and ?",
-        search_params[:left_border],
-        search_params[:right_border]
-      ).where(
-        car_type: search_params[:car_type]
-      ).where(
-        "rate between ? AND ?",
-        search_params[:rate_min],
-        search_params[:rate_max]
-      )
+      @car_listings = nil
+      if search_params[:current_user] == "true"
+        @car_listings = CarListing.includes(:images)
+          .where(leaser: current_user);
+      else
+        @car_listings = CarListing.includes(:images)
+          .where(
+            "latitude between ? AND ?",
+            search_params[:bottom_border],
+            search_params[:top_border])
+          .where(
+            " longitude between ? and ?",
+            search_params[:left_border],
+            search_params[:right_border])
+          .where(
+            car_type: search_params[:car_type])
+          .where(
+            "rate between ? AND ?",
+            search_params[:rate_min],
+            search_params[:rate_max])
+      end
       render :index
     end
 
@@ -68,6 +74,7 @@ module Api
 
     def search_params
       params.permit(
+        :current_user,
         :left_border,
         :top_border,
         :right_border,

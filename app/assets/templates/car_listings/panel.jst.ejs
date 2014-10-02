@@ -1,0 +1,17 @@
+<a class="panel panel-default" style="display:block;" href="#/car_listings/<%= carListing.id %>">
+  <!-- <div class="panel-body"> -->
+    <!--  -->
+  <!-- </div> -->
+  <div class="panel-body car-listing-panel-body">
+    <div class="row">
+      <div class="col-xs-4">
+        <img src="<%= carListing.get("imageUrls")[0] %>" class="img-responsive"></img>
+      </div>
+      <div class="col-xs-8">
+        <strong><%= carListing.get("title") %></strong><br>
+        <%= carListing.get("description") %>
+      </div>
+    </div>
+
+  </div>
+</a>

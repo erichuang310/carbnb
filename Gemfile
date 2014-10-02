@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
+gem 'date_validator'
 gem 'geocoder'
 gem 'filepicker-rails'
 gem "faker"

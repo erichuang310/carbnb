@@ -1,7 +1,11 @@
 Carbnd.Models.Request = Backbone.Model.extend({
-  urlRoot: "/api/requests"
+  urlRoot: "/api/requests",
 
-  // initialize: function (attributes, options) {
-  //   this.car_listing_id = options.carListing.id;
-  // }
+  parse: function (response) {
+    if(response.car_listing) {
+      this.carListing = new Carbnd.Models.CarListing(response.car_listing);
+      delete response.car_listing;
+    }
+    return response;
+  }
 });

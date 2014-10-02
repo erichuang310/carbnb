@@ -3,6 +3,7 @@ Carbnd.Views.CarListingShow = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.addNavbar();
+    this.addFooter();
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.model, "sync", this.addRequestSidebar);
   },
@@ -36,28 +37,38 @@ Carbnd.Views.CarListingShow = Backbone.CompositeView.extend({
     }
   },
 
+  addFooter: function () {
+    var footerView = new Carbnd.Views.LayoutsFooter();
+    this.addSubview("footer", footerView);
+  },
+
+  initParallax: function () {
+    $(window).on("scroll", function (e) {
+      if ($(window).scrollTop() < this.$("header").height()) {
+        var yPos = -(($(window).scrollTop()) / this.$("header").data('speed'));
+        var coords = '50% '+ yPos + 'px';
+        this.$("header").css({ backgroundPosition: coords });
+      }
+      if ($(window).scrollTop() + $(window).height() > $("footer").offset().top) {
+        var yPos = -(($(window).scrollTop()) / this.$("footer").data('speed'));
+        var coords = '50% '+ yPos + 'px';
+        this.$("footer").css({ backgroundPosition: coords });
+      }
+    });
+  },
+
+
   render: function () {
     var renderedContent = this.template({
       carListing: this.model
     });
     this.$el.html(renderedContent);
-    // if (this.model.get("imageUrls")) {
-    //   this.$("#car-listing-header").css({ "background-image": "url(" + this.model.get("imageUrls")[0] + ")" })
-    // }
-    console.log("rendering");
+    if (this.model.get("imageUrls")) {
+      this.$("#car-listing-header").css({ "background-image": "url(" + this.model.get("imageUrls")[0] + ")" })
+    }
 
     this.attachSubviews();
-
-    $(function(){
-      [$("#car-listing-header")].forEach(function(obj){
-        var $obj = $(obj);
-        $(window).scroll(function() {
-          var yPos = -(($(window).scrollTop()) / $obj.data('speed')) - 100;
-          var coords = '50% '+ yPos + 'px';
-          $(obj).css({ backgroundPosition: coords });
-        });
-      });
-    });
+    this.initParallax();
 
     return this;
   }

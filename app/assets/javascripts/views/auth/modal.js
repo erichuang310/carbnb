@@ -59,7 +59,8 @@ Carbnd.Views.AuthModal = Backbone.CompositeView.extend({
 
   addFlashErrors: function (errors) {
     var flashMessageView = new Carbnd.Views.LayoutsFlashMessage({
-      messages: errors
+      messages: errors,
+      flashClass: "alert-danger"
     })
     this.$("#flash-message").html(flashMessageView.render().$el);
     this.$("input[type=password]").val("");

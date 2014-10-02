@@ -10,10 +10,7 @@ module Api
         login!(@user)
         render :show
       else
-        flash.now[:error] = ["Invalid credentials. Please try again."]
-        render json:
-          { message: "Invalid credentials. Please try again." },
-          status: :unprocessable_entity
+        render json: { message: "Invalid login credentials" }, status: :unprocessable_entity
       end
     end
 
