@@ -81,7 +81,8 @@ Carbnd.Views.SearchMap = Backbone.CompositeView.extend({
         position: latLng,
         map: this.map,
         title: carListingView.model.get("title"),
-        icon: this.inactiveIcon
+        icon: this.inactiveIcon//,
+        // animation: google.maps.Animation.DROP
     });
 
     this.markers.push(marker);
