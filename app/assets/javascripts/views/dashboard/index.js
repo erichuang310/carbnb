@@ -6,6 +6,7 @@ Carbnd.Views.DashboardIndex = Backbone.CompositeView.extend({
     this.carListings = options.carListings;
     this.requests = options.requests;
     this.listenTo(this.carListings, "sync", this.addCarListingPanels);
+    this.listenTo(this.carListings, "sync", this.addIncomingRequestPanels);
     this.listenTo(this.requests, "sync", this.addRequestPanels);
   },
 
@@ -31,6 +32,19 @@ Carbnd.Views.DashboardIndex = Backbone.CompositeView.extend({
         model: request
       });
       that.addSubview("#dashboard-requests", requestPanelView);
+    });
+  },
+
+  addIncomingRequestPanels: function () {
+    var that = this;
+    this.carListings.each( function (carListing) {
+      carListing.requests().each( function (request) {
+
+        var requestPanelView = new Carbnd.Views.RequestPanel({
+          model: request
+        });
+        that.addSubview("#dashboard-incoming-requests", requestPanelView);
+      })
     });
   },
 

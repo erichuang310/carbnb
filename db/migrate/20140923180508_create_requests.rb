@@ -5,7 +5,7 @@ class CreateRequests < ActiveRecord::Migration
       t.date :end_date, null: false
       t.integer :car_listing_id, null: false, index: true
       t.integer :leasee_id, null: false, index: true
-      t.string :status, null: false, default: "PENDING"
+      t.string :status, null: false, default: "Pending"
 
       t.timestamps
     end

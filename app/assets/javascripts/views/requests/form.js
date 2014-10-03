@@ -24,11 +24,27 @@ Carbnd.Views.RequestForm = Backbone.CompositeView.extend({
         that.$("input[type=submit]").css("color", "green");
       },
       error : function (model, resp) {
-        if (request.status === 401) {
+        if (request.status !== 401) {
           that.addFlashMessage(resp.responseJSON, "alert-danger");
         }
       }
     });
+  },
+
+  initDatePickers: function () {
+    setTimeout( function () {
+      $startDatePicker = $('#request-start-date').datepicker({
+        startDate: new Date(),
+        autoclose: true
+      });
+      $endDatePicker = $('#request-end-date').datepicker({
+        startDate: new Date(),
+        autoclose: true
+      });
+      $startDatePicker.on("changeDate", function (e) {
+        $endDatePicker.datepicker("setStartDate", $startDatePicker.datepicker("getDate"))
+      });
+    }, 0);
   },
 
   addFlashMessage: function (errors, flashClass) {
@@ -42,6 +58,7 @@ Carbnd.Views.RequestForm = Backbone.CompositeView.extend({
   render: function () {
     var renderedContent = this.template();
     this.$el.html(renderedContent);
+    this.initDatePickers();
 
     return this;
   }

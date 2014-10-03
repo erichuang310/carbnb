@@ -57,8 +57,8 @@ Carbnd.Views.CarListingShow = Backbone.CompositeView.extend({
         var coords = '50% '+ yPos + 'px';
         $header.css({ backgroundPosition: coords });
       }
-      if (windowScrollTop + windowHeight > $footer.offset().top) {
-        var yPos = -(windowScrollTop / footerSpeed);
+      if (windowScrollTop + windowHeight > 1100) {
+        var yPos = -(windowScrollTop / footerSpeed + 100);
         var coords = '50% '+ yPos + 'px';
         $footer.css({ backgroundPosition: coords });
       }

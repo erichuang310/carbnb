@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20141002171332) do
     t.date     "end_date",                           null: false
     t.integer  "car_listing_id",                     null: false
     t.integer  "leasee_id",                          null: false
-    t.string   "status",         default: "PENDING", null: false
+    t.string   "status",         default: "Pending", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -25,4 +25,8 @@ json.array! @car_listings do |car_listing|
 
   json.imageUrls imageUrls
 
+  unless car_listing.requests.empty?
+    json.requests car_listing.requests
+  end
+  
 end

@@ -10,6 +10,7 @@ Carbnd.Collections.Requests = Backbone.Collection.extend({
 
   initialize: function (models, options) {
     this.userId = options.userId
+    this.carListing = options.carListing
   }
 });
 

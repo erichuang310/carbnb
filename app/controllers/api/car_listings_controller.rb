@@ -15,7 +15,7 @@ module Api
     def index
       @car_listings = nil
       if search_params[:current_user] == "true"
-        @car_listings = CarListing.includes(:images)
+        @car_listings = CarListing.includes(:images, :requests)
           .where(leaser: current_user);
       else
         @car_listings =

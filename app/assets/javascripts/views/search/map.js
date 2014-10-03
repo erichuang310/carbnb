@@ -12,7 +12,7 @@ Carbnd.Views.SearchMap = Backbone.CompositeView.extend({
     };
     this.infoWindows = [];
     this.markers = [];
-    this.initMarkers();
+    this.setIcons();
 
     PubSub.subscribe('car-listings', this.addCarListing.bind(this));
     PubSub.subscribe('remove-car-listing', this.removeCarListing.bind(this));
@@ -20,16 +20,16 @@ Carbnd.Views.SearchMap = Backbone.CompositeView.extend({
     PubSub.subscribe('car-listing-mouseout', this.shrinkMarker.bind(this));
   },
 
-  initMarkers: function () {
-    this.activeMarker = {
+  setIcons: function () {
+    this.inactiveIcon = {
       path: fontawesome.markers.MAP_MARKER,
-      fillColor: "#3FB8AF",
+      fillColor: "grey",
       fillOpacity: 1,
       scale: 0.6,
       strokeWeight: 1.2,
       strokeColor: 'grey'
     };
-    this.inactiveMarker = {
+    this.activeIcon = {
       path: fontawesome.markers.MAP_MARKER,
       fillColor: '#3FB8AF',
       fillOpacity: 1,
@@ -81,7 +81,7 @@ Carbnd.Views.SearchMap = Backbone.CompositeView.extend({
         position: latLng,
         map: this.map,
         title: carListingView.model.get("title"),
-        icon: this.inactiveMarker
+        icon: this.inactiveIcon
     });
 
     this.markers.push(marker);
@@ -106,7 +106,7 @@ Carbnd.Views.SearchMap = Backbone.CompositeView.extend({
       }
     );
 
-    marker.setIcon(this.activeMarker);
+    marker.setIcon(this.activeIcon);
   },
 
   removeCarListing: function (pubsubMsg, carListing) {
@@ -132,7 +132,7 @@ Carbnd.Views.SearchMap = Backbone.CompositeView.extend({
       }
     );
 
-    marker.setIcon(this.inactiveMarker);
+    marker.setIcon(this.inactiveIcon);
   },
 
   closeInfoWindows: function () {

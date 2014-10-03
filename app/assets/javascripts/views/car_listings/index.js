@@ -9,10 +9,16 @@ Carbnd.Views.CarListingsIndex = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "add", this.addCarListing);
     this.listenTo(this.collection, "remove", this.removeCarListing);
     this.listenTo(this.collection, "sync", this.handleSpinner);
+    var token = PubSub.subscribe( 'carListings query params updated', this.updateCarListings );
     var that = this;
     this.collection.each(function (carListing) {
       that.addCarListing(carListing);
     });
+  },
+
+
+  updateCarListings: function () {
+    Carbnd.carListings.fetch({ data: Carbnd.searchParams })
   },
 
   handleSpinner: function () {

@@ -7,7 +7,7 @@
 #  end_date       :date             not null
 #  car_listing_id :integer          not null
 #  leasee_id      :integer          not null
-#  status         :string(255)      default("PENDING"), not null
+#  status         :string(255)      default("Pending"), not null
 #  created_at     :datetime
 #  updated_at     :datetime
 #
@@ -45,30 +45,30 @@ class Request < ActiveRecord::Base
   )
 
   def approve!
-    raise "not pending" unless self.status == "PENDING"
+    raise "not pending" unless self.status == "Pending"
     transaction do
-      self.status = "APPROVED"
+      self.status = "Approved"
       self.save!
 
-      overlapping_pending_requests.update_all(status: 'DENIED')
+      overlapping_pending_requests.update_all(status: 'Denied')
     end
   end
 
   def deny!
-    self.status = "DENIED"
+    self.status = "Denied"
     self.save!
   end
 
   def approved?
-    self.status == "APPROVED"
+    self.status == "Approved"
   end
 
   def denied?
-    self.status == "DENIED"
+    self.status == "Denied"
   end
 
   def pending?
-    self.status == "PENDING"
+    self.status == "Pending"
   end
 
 
@@ -94,11 +94,11 @@ class Request < ActiveRecord::Base
   end
 
   def overlapping_approved_requests
-    overlapping_requests.where("status = 'APPROVED'")
+    overlapping_requests.where("status = 'Approved'")
   end
 
   def overlapping_pending_requests
-    overlapping_requests.where("status = 'PENDING'")
+    overlapping_requests.where("status = 'Pending'")
   end
 
   def does_not_overlap_approved_request

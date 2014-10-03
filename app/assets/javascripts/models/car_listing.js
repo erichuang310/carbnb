@@ -10,8 +10,13 @@ Carbnd.Models.CarListing = Backbone.Model.extend({
   },
 
   parse: function (response) {
+    var carListing = this;
+
     if(response.requests) {
       this.requests().set(response.requests, { parse: true });
+      this.requests().each( function (request) {
+        request.carListing = carListing;
+      });
       delete response.requests;
     }
 

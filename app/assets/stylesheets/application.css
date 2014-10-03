@@ -18,8 +18,12 @@
  *= require_self
  */
 
+.panel {
+  border-radius: 2px;
+  margin-bottom: 0px;
+}
 body {
-  min-width: 1300px;
+  min-width: 1000px;
 }
 
 #car-listings .carousel-img {
@@ -40,9 +44,6 @@ a.left.carousel-control {
   background-size: cover;
   height: 120px;
   width: 195px;
-  /*min-width: 180px;
-  min-height: 120px;
-  height: auto;*/
   background-position: 50% 50%;
   background-repeat: no-repeat;
 }
@@ -60,10 +61,6 @@ a, a:hover {
 .car-listing-panel-body:hover {
   background-color:rgba(0, 0, 0, 0.1);
 }
-/*#content {*/
-  /*padding-left:0px;*/
-  /*padding-right:0px;*/
-/*}*/
 .list-group-item {
   border-radius: 0px;
   -webkit-appearance: none;
@@ -122,8 +119,6 @@ header#car-listing-header {
 .carousel-control .control-right {
   position: absolute;
   top: 42%;
-  /*z-index: 5;*/
-  /*display: inline-block;*/
 }
 
 .carousel-control.left, .carousel-control.right {
@@ -287,18 +282,13 @@ footer ul li {
 }
 .car-listing-item .car-listing-mouseover {
   border: 1px solid grey;
+  /*-webkit-filter: grayscale(5%);*/
 }
 .car-listing-item .car-listing-mouseover:hover {
   background-color: white;
-  /*color: black; */
-  /*z-index: 5px;*/
-  /*-webkit-box-shadow:inset 0px 1px 1px 2px grey;*/
-  /*-moz-box-shadow:inset 0px 0px 0px 2px grey;*/
-  /*box-shadow:inset 0px 0px 0px 1px black;*/
-
-    /*border: 2px solid black;*/
-
-
+  border: 2px solid grey;
+  margin: -1px;
+  /*-webkit-filter: grayscale(0%);*/
 }
 
 
@@ -315,10 +305,10 @@ a.car-listing-link {
   right:0;
 }
 #map-canvas {
-  height: 713px;
+  height: calc(100vh - 52px);
 }
 
 #sidebar {
   overflow-y: scroll;
-  height: 713px;
+  height: calc(100vh - 52px);
 }

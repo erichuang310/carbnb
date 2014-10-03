@@ -38,7 +38,7 @@ module Api
 
     def update
       @request = Request.find(params[:id])
-      if request_params[:status] == "APPROVED"
+      if request_params[:status] == "Approved"
         @request.approve!
       else
         @request.deny!
