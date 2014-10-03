@@ -1,14 +1,8 @@
 Carbnd.Views.CarListingsIndex = Backbone.CompositeView.extend({
   template: JST["car_listings/index"],
-  // className: "container-fluid",
-  // updateCarListings: function () {
-    // Carbnd.carListings.fetch({ data: Carbnd.searchParams })
-  // },
 
   initialize: function () {
     this.addNavbar();
-
-    // var token = PubSub.subscribe( 'carListings query params updated', this.updateCarListings );
     this.addMap();
     this.addSearch();
 

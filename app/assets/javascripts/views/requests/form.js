@@ -27,7 +27,6 @@ Carbnd.Views.RequestForm = Backbone.CompositeView.extend({
         that.addFlashMessage(resp.responseJSON, "alert-danger");
       }
     });
-
   },
 
   addFlashMessage: function (errors, flashClass) {
@@ -41,7 +40,7 @@ Carbnd.Views.RequestForm = Backbone.CompositeView.extend({
   render: function () {
     var renderedContent = this.template();
     this.$el.html(renderedContent);
-
+    
     return this;
   }
 });

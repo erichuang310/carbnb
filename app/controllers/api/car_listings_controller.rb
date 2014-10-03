@@ -8,7 +8,7 @@ module Api
       if @car_listing.save
         render json: @car_listing, status: :created
       else
-        render json: @car_listing.errors, status: :unprocessable_entity
+        render json: @car_listing.errors.full_messages, status: :unprocessable_entity
       end
     end
 
@@ -19,13 +19,12 @@ module Api
           .where(leaser: current_user);
       else
         @car_listings =
-          CarListing.where("rate between ? AND ?", search_params[:rate_min], search_params[:rate_max])
+          CarListing.includes(:images).where("rate between ? AND ?", search_params[:rate_min], search_params[:rate_max])
           .where(car_type: search_params[:car_type])
           .where("latitude between ? AND ?", search_params[:bottom_border], search_params[:top_border])
           .where("longitude between ? AND ?", search_params[:left_border], search_params[:right_border])
       end
 
-      sleep 1
       render :index
     end
 

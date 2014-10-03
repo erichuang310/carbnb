@@ -17,6 +17,12 @@ json.array! @car_listings do |car_listing|
     :latitude,
     :longitude
   )
-  json.imageUrls car_listing.images.pluck(:file_picker_url)
+
+  imageUrls = []
+  car_listing.images.each do |image|
+    imageUrls << image.file_picker_url
+  end
+
+  json.imageUrls imageUrls
 
 end
