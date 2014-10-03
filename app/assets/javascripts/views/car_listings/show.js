@@ -30,10 +30,8 @@ Carbnd.Views.CarListingShow = Backbone.CompositeView.extend({
   addRequestSidebar: function () {
     if (this.model.get("leaser_id") == Carbnd.currentUser.get("id")) {
       this.addRequestsIndex();
-      console.log("rendering index");
     } else {
       this.addRequestForm();
-      console.log("rendering form");
     }
   },
 
@@ -72,16 +70,16 @@ Carbnd.Views.CarListingShow = Backbone.CompositeView.extend({
     });
   },
 
-
   render: function () {
     var renderedContent = this.template({
       carListing: this.model
     });
     this.$el.html(renderedContent);
     if (this.model.get("imageUrls")) {
-      this.$("#car-listing-header").css({ "background-image": "url(" + this.model.get("imageUrls")[0] + ")" })
+      this.$("#car-listing-header").css({
+        "background-image": "url(" + this.model.get("imageUrls")[0] + ")"
+      })
     }
-
     this.attachSubviews();
     this.initParallax();
 

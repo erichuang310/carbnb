@@ -11,8 +11,8 @@ Carbnd.Views.SearchForm = Backbone.CompositeView.extend({
     Carbnd.searchParams.start_date = formParams.start_date;
     Carbnd.searchParams.end_date = formParams.end_date;
     Carbnd.searchParams.car_type = formParams.car_type;
-    Carbnd.searchParams.rate_min = formParams.rate_min;
-    Carbnd.searchParams.rate_max = formParams.rate_max;
+    Carbnd.searchParams.rate_min = this.$("#rate-min").html().substring(1)
+    Carbnd.searchParams.rate_max = this.$("#rate-max").html().substring(1)
     Carbnd.carListings.fetch({ data: Carbnd.searchParams });
     PubSub.publish('carListings query params updated', this);
   },

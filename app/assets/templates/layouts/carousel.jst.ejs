@@ -2,20 +2,27 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <% for (var i = 0; i < carListing.get("imageUrls").length; i++) { %>
-      <div class="<%= i === 0 ? 'item active' : 'item' %>">
-        <img src="<%= carListing.get("imageUrls")[i] %>"></img>
+      <div class="<%= i === 0 ? 'item active' : 'item' %> carousel-img"
+        style="background-image:url(<%= carListing.get("imageUrls")[i] %>)">
       </div>
     <% } %>
   </div>
 
   <!-- Controls -->
-  <a class="left carousel-control" href="#car-listing-item-carousel-<%= carListing.id %>" role="button" data-slide="prev">
-    <!-- <span class="glyphicon glyphicon-chevron-left"></span> -->
+  <a
+    class="left carousel-control"
+    href="#car-listing-item-carousel-<%= carListing.id %>"
+    role="button"
+    data-slide="prev">
     <span class="control-left">
       <i class="fa fa-angle-left fa-stack-1x"></i>
     </span>
   </a>
-  <a class="right carousel-control" href="#car-listing-item-carousel-<%= carListing.id %>" role="button" data-slide="next">
+  <a
+    class="right carousel-control"
+    href="#car-listing-item-carousel-<%= carListing.id %>"
+    role="button"
+    data-slide="next">
     <span class="control-right">
       <i class="fa fa-angle-right fa-stack-1x"></i>
     </span>

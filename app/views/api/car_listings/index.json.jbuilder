@@ -18,4 +18,5 @@ json.array! @car_listings do |car_listing|
     :longitude
   )
   json.imageUrls car_listing.images.pluck(:file_picker_url)
+
 end

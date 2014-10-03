@@ -2,11 +2,11 @@ Carbnd.Views.SearchMap = Backbone.CompositeView.extend({
   template: JST["search/map"],
   id: "map-view",
 
-  initialize: function () {
+  initialize: function (options) {
     this.mapOptions = {
       center: {
-        lat: Carbnd.searchParams.lat,
-        lng: Carbnd.searchParams.lng
+        lat: options.lat,
+        lng: options.lng
       },
       zoom: 12
     };
@@ -74,8 +74,7 @@ Carbnd.Views.SearchMap = Backbone.CompositeView.extend({
     marker.carListingId = carListingView.model.id
 
     var infoWindow = new google.maps.InfoWindow({
-      content: carListingContent,
-      maxWidth: 200
+      content: carListingContent
     });
 
     this.infoWindows.push(infoWindow);

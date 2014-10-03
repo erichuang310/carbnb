@@ -1,24 +1,32 @@
 Carbnd.Views.CarListingsIndex = Backbone.CompositeView.extend({
   template: JST["car_listings/index"],
   // className: "container-fluid",
-  updateCarListings: function () {
-    Carbnd.carListings.fetch({ data: Carbnd.searchParams })
-  },
+  // updateCarListings: function () {
+    // Carbnd.carListings.fetch({ data: Carbnd.searchParams })
+  // },
 
   initialize: function () {
     this.addNavbar();
 
-    var token = PubSub.subscribe( 'carListings query params updated', this.updateCarListings );
+    // var token = PubSub.subscribe( 'carListings query params updated', this.updateCarListings );
     this.addMap();
     this.addSearch();
 
     this.listenTo(this.collection, "add", this.addCarListing);
     this.listenTo(this.collection, "remove", this.removeCarListing);
-
+    this.listenTo(this.collection, "sync", this.handleSpinner);
     var that = this;
     this.collection.each(function (carListing) {
       that.addCarListing(carListing);
     });
+  },
+
+  handleSpinner: function () {
+    if (this.collection.length > 0) {
+      this.$spinner.hide();
+    } else {
+      this.$spinner.show();
+    }
   },
 
   addNavbar: function () {
@@ -27,7 +35,18 @@ Carbnd.Views.CarListingsIndex = Backbone.CompositeView.extend({
   },
 
   addMap: function () {
-    var mapView = new Carbnd.Views.SearchMap();
+    if (Carbnd.searchParams && Carbnd.searchParams.lat && Carbnd.searchParams.lng) {
+      var lat = Carbnd.searchParams.lat;
+      var lng = Carbnd.searchParams.lng;
+    } else {
+      var lat = 37.7749295;
+      var lng = -122.41941550000001;
+    }
+
+    var mapView = new Carbnd.Views.SearchMap({
+      lat: lat,
+      lng: lng
+    });
     this.addSubview("#map-container", mapView);
   },
 
@@ -56,6 +75,7 @@ Carbnd.Views.CarListingsIndex = Backbone.CompositeView.extend({
     var renderedContent = this.template({ carListings: this.collection });
     this.$el.html(renderedContent);
     this.attachSubviews();
+    this.$spinner = this.$(".scene");
 
     return this;
   }

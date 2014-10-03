@@ -18,7 +18,34 @@
  *= require_self
  */
 
+body {
+  min-width: 1300px;
+}
 
+#car-listings .carousel-img {
+  min-height: 240px;
+  min-width: 350px;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+a.right.carousel-control {
+  text-align: left;
+}
+a.left.carousel-control {
+  text-align: right;
+}
+
+.gm-style-iw .carousel-img {
+  background-size: cover;
+  height: 120px;
+  width: 195px;
+  /*min-width: 180px;
+  min-height: 120px;
+  height: auto;*/
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
 #request-sidebar {
   width: 270px;
 }
@@ -42,15 +69,6 @@ a, a:hover {
   -webkit-appearance: none;
   -webkit-border-radius: 2px;
 }
-#new-request-title {
-  /*background-color: #E3E3E3;*/
-  /*border-bottom: 1px solid darkGrey;*/
-}
-#request-sidebar {
-  /*border: 1px solid darkGrey;*/
-  /*padding-left: 15px;*/
-  /*padding-right: 15px;*/
-}
 .navbar {
   background-color: white;
 }
@@ -63,7 +81,7 @@ header {
 }
 
 header#home {
-  /*margin-top: -50px;*/
+  background-color: red;
   background: url(/assets/bmw_m3_front.min.jpg) 50% 0px no-repeat;
   /*text-align: center;*/
   background-size: cover;
@@ -81,11 +99,9 @@ header#car-listing-header {
 
 .car-listing-description {
   padding: 10px;
-    /*border: 1px solid darkfGrey;*/
 }
 .car-listing-mouseover {
-  border: 1px solid darkGrey;
-  /*background-color: black;*/
+  /*border: 1px solid darkGrey;*/
   opacity: 0.95;
 }
 .car-listing-mouseover:hover {
@@ -215,10 +231,7 @@ footer {
   padding-top: 50px;
   padding-bottom: 50px;
   background-image: url(/assets/pavement_new.jpg);
-  /*bottom: 0;*/
-  /*background-position: center;*/
   background-size: cover;
-  /*background: no-repeat;*/
   color: white;
 }
 footer a {
@@ -270,6 +283,10 @@ footer ul li {
   padding-top: 15px;
   padding-left:15px;
   padding-right:0px;
+  /*border: 1px solid grey;*/
+}
+.car-listing-item .car-listing-mouseover {
+  border: 1px solid grey;
 }
 
 a.car-listing-link {

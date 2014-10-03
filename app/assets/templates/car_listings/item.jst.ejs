@@ -1,12 +1,12 @@
-<a class="car-listing-mouseover" href="#/car_listings/<%= carListing.id %>" style="display:block;">
+<div class="car-listing-mouseover">
   <div class="carousel-container"></div>
   <div class="car-listing-description">
-    <!-- <a
+    <a
       class="car-listing-link"
-      href="#/car_listings/<%= carListing.id %>"> -->
+      href="#/car_listings/<%= carListing.id %>">
       <%= carListing.get("title") %>
     <br>
       <%= carListing.get("car_make") %> <%= carListing.get("car_model") %>
-    <!-- </a> -->
+    </a>
   </div>
-</a>
+</div>

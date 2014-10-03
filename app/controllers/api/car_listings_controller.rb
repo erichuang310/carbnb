@@ -18,22 +18,14 @@ module Api
         @car_listings = CarListing.includes(:images)
           .where(leaser: current_user);
       else
-        @car_listings = CarListing.includes(:images)
-          .where(
-            "latitude between ? AND ?",
-            search_params[:bottom_border],
-            search_params[:top_border])
-          .where(
-            " longitude between ? and ?",
-            search_params[:left_border],
-            search_params[:right_border])
-          .where(
-            car_type: search_params[:car_type])
-          .where(
-            "rate between ? AND ?",
-            search_params[:rate_min],
-            search_params[:rate_max])
+        @car_listings =
+          CarListing.where("rate between ? AND ?", search_params[:rate_min], search_params[:rate_max])
+          .where(car_type: search_params[:car_type])
+          .where("latitude between ? AND ?", search_params[:bottom_border], search_params[:top_border])
+          .where("longitude between ? AND ?", search_params[:left_border], search_params[:right_border])
       end
+
+      sleep 1
       render :index
     end
 
@@ -73,17 +65,19 @@ module Api
     end
 
     def search_params
-      params.permit(
-        :current_user,
-        :left_border,
-        :top_border,
-        :right_border,
-        :bottom_border,
-        :start_date,
-        :end_date,
-        :rate_min,
-        :rate_max,
-        car_type: []
+      ActionController::Parameters.new(
+        current_user: params[:current_user],
+        lat: params[:lat] || 37.7748662034,
+        lng: params[:lng] || -122.4194155,
+        left_border: params[:left_border] || "-122.51554587109376",
+        right_border: params[:right_border] || "-122.32328512890626",
+        top_border: params[:top_border] || "37.87160967668078",
+        bottom_border: params[:bottom_border] || "37.67812273013742",
+        start_date: params[:start_date],
+        end_date: params[:end_date],
+        rate_min: params[:rate_min] || 50,
+        rate_max: params[:rate_max] || 500,
+        car_type: params[:car_type] || ["Sport", "Utility", "Luxury", "Economy"]
       )
     end
   end

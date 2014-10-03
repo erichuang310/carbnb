@@ -12,12 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require pubsub
 //= require jquery.nouislider.all.min
 //= require jquery.geocomplete.min
-//= require pubsub
 //= require jquery.serializejson.min
-//= require bootstrap-datepicker
 //= require bootstrap.min
+//= require bootstrap-datepicker
 //= require jasny-bootstrap.min
 //= require fontawesome-markers
 //= require underscore
@@ -29,6 +29,5 @@
 //= require_tree ../templates
 //= require_tree ./views
 //= require_tree ./routers
-//= require typed
 //= require edmunds.api.sdk
 //= require_tree .

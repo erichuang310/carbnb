@@ -30,5 +30,6 @@ Carbnd.Collections.CarListings = Backbone.Collection.extend({
   }
 });
 
+Carbnd.searchParams = {};
 Carbnd.carListings = new Carbnd.Collections.CarListings([], {});
 Carbnd.currentUserCarListings = new Carbnd.Collections.CarListings([], {});

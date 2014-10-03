@@ -53,7 +53,8 @@ Carbnd.Views.HomeIndex = Backbone.CompositeView.extend({
         $header.css({ backgroundPosition: coords });
       }
       if (windowScrollTop + windowHeight > $footer.offset().top) {
-        var yPos = -(windowScrollTop / footerSpeed);
+        console.log("footer");
+        var yPos = -(windowScrollTop / footerSpeed + 220);
         var coords = '50% '+ yPos + 'px';
         $footer.css({ backgroundPosition: coords });
       }

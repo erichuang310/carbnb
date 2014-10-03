@@ -9,6 +9,11 @@ Carbnd.Views.DashboardIndex = Backbone.CompositeView.extend({
     this.listenTo(this.requests, "sync", this.addRequestPanels);
   },
 
+  addNavbar: function () {
+    var navbarView = new Carbnd.Views.LayoutsNavbar();
+    this.addSubview("#nav", navbarView);
+  },
+
   addCarListingPanels: function () {
     var that = this;
     this.carListings.each( function (carListing) {
@@ -27,11 +32,6 @@ Carbnd.Views.DashboardIndex = Backbone.CompositeView.extend({
       });
       that.addSubview("#dashboard-requests", requestPanelView);
     });
-  },
-
-  addNavbar: function () {
-    var navbarView = new Carbnd.Views.LayoutsNavbar();
-    this.addSubview("#nav", navbarView);
   },
 
   render: function () {
