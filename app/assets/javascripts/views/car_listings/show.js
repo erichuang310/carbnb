@@ -75,11 +75,14 @@ Carbnd.Views.CarListingShow = Backbone.CompositeView.extend({
       carListing: this.model
     });
     this.$el.html(renderedContent);
-    if (this.model.get("imageUrls")) {
-      this.$("#car-listing-header").css({
-        "background-image": "url(" + this.model.get("imageUrls")[0] + ")"
-      })
+    if (this.model.get("imageUrls") && this.model.get("imageUrls").length > 0) {
+      var imageUrl = "url(" + this.model.get("imageUrls")[0] + ")";
+    } else {
+      var imageUrl = "url(/assets/car-placeholder.jpg)";
     }
+    this.$("#car-listing-header").css({
+      "background-image": imageUrl
+    })
     this.attachSubviews();
     this.initParallax();
 

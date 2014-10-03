@@ -13,6 +13,7 @@ json.array! @car_listings do |car_listing|
     :car_make,
     :car_model,
     :car_color,
+    :car_type,
     :address,
     :latitude,
     :longitude
@@ -28,5 +29,5 @@ json.array! @car_listings do |car_listing|
   unless car_listing.requests.empty?
     json.requests car_listing.requests
   end
-  
+
 end

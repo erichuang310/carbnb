@@ -17,23 +17,23 @@ ActiveRecord::Schema.define(version: 20141002171332) do
   enable_extension "plpgsql"
 
   create_table "car_listings", force: true do |t|
-    t.integer  "leaser_id",                   null: false
-    t.string   "title",                       null: false
-    t.text     "description",                 null: false
-    t.integer  "rate",                        null: false
-    t.integer  "deposit",                     null: false
-    t.string   "cancellation",                null: false
-    t.boolean  "active",       default: true, null: false
-    t.integer  "car_year",                    null: false
-    t.string   "car_make",                    null: false
-    t.string   "car_model",                   null: false
-    t.string   "car_color",                   null: false
-    t.string   "address",                     null: false
-    t.float    "latitude",                    null: false
-    t.float    "longitude",                   null: false
+    t.integer  "leaser_id",                      null: false
+    t.string   "title",                          null: false
+    t.text     "description",                    null: false
+    t.integer  "rate",                           null: false
+    t.integer  "deposit",                        null: false
+    t.string   "cancellation",                   null: false
+    t.boolean  "active",       default: true,    null: false
+    t.integer  "car_year",                       null: false
+    t.string   "car_make",                       null: false
+    t.string   "car_model",                      null: false
+    t.string   "car_color",                      null: false
+    t.string   "address",                        null: false
+    t.float    "latitude",                       null: false
+    t.float    "longitude",                      null: false
+    t.string   "car_type",     default: "Sport"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "car_type"
   end
 
   add_index "car_listings", ["latitude"], name: "index_car_listings_on_latitude", using: :btree

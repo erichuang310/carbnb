@@ -5,7 +5,14 @@
   <div class="panel-body car-listing-panel-body">
     <div class="row">
       <div class="col-xs-4">
-        <img src="<%= carListing.get("imageUrls")[0] %>" class="img-responsive"></img>
+        <% if (carListing.get("imageUrls") && carListing.get("imageUrls").length > 0) { %>
+          <img src="<%= carListing.get("imageUrls")[0] %>" class="img-responsive"></img>
+        <% } else { %>
+          <img src="/assets/car-placeholder.jpg" class="img-responsive"></img>
+        <% } %>
+
+
+
       </div>
       <div class="col-xs-8">
         <strong><%= carListing.get("title") %></strong><br>

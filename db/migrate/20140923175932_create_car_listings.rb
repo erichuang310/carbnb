@@ -15,6 +15,7 @@ class CreateCarListings < ActiveRecord::Migration
       t.string :address, null: false
       t.float :latitude, null: false
       t.float :longitude, null: false
+      t.string :car_type, default: "Sport"
 
       t.timestamps
     end
