@@ -12,10 +12,31 @@ Carbnd.Views.SearchMap = Backbone.CompositeView.extend({
     };
     this.infoWindows = [];
     this.markers = [];
+    this.initMarkers();
 
     PubSub.subscribe('car-listings', this.addCarListing.bind(this));
+    PubSub.subscribe('remove-car-listing', this.removeCarListing.bind(this));
     PubSub.subscribe('car-listing-mouseover', this.stretchMarker.bind(this));
     PubSub.subscribe('car-listing-mouseout', this.shrinkMarker.bind(this));
+  },
+
+  initMarkers: function () {
+    this.activeMarker = {
+      path: fontawesome.markers.MAP_MARKER,
+      fillColor: "#3FB8AF",
+      fillOpacity: 1,
+      scale: 0.6,
+      strokeWeight: 1.2,
+      strokeColor: 'grey'
+    };
+    this.inactiveMarker = {
+      path: fontawesome.markers.MAP_MARKER,
+      fillColor: '#3FB8AF',
+      fillOpacity: 1,
+      scale: 0.6,
+      strokeWeight: 1.2,
+      strokeColor: 'grey'
+    }
   },
 
   addMap: function () {
@@ -60,16 +81,9 @@ Carbnd.Views.SearchMap = Backbone.CompositeView.extend({
         position: latLng,
         map: this.map,
         title: carListingView.model.get("title"),
-        icon: {
-            path: fontawesome.markers.CAR,
-            scale: 0.3,
-            strokeWeight: 0.2,
-            strokeColor: 'black',
-            strokeOpacity: 1,
-            fillColor: carListingView.model.get("car_color"),
-            fillOpacity: 0.8,
-        },
+        icon: this.inactiveMarker
     });
+
     this.markers.push(marker);
     marker.carListingId = carListingView.model.id
 
@@ -91,15 +105,23 @@ Carbnd.Views.SearchMap = Backbone.CompositeView.extend({
         return carListingView.model.id === marker.carListingId;
       }
     );
-    marker.setIcon({
-          path: fontawesome.markers.CAR,
-          scale: 0.5,
-          strokeWeight: 0.2,
-          strokeColor: 'black',
-          strokeOpacity: 1,
-          fillColor: carListingView.model.get("car_color"),
-          fillOpacity: 0.8,
-    });
+
+    marker.setIcon(this.activeMarker);
+  },
+
+  removeCarListing: function (pubsubMsg, carListing) {
+    var marker = _.find(
+      this.markers,
+      function (marker) {
+        return carListing.id === marker.carListingId;
+      }
+    );
+    marker.setMap(null);
+
+    var i = this.markers.indexOf(marker);
+    if (i !== -1) {
+    	this.markers.splice(i, 1);
+    }
   },
 
   shrinkMarker: function (pubSubMsg, carListingView) {
@@ -109,15 +131,8 @@ Carbnd.Views.SearchMap = Backbone.CompositeView.extend({
         return carListingView.model.id === marker.carListingId;
       }
     );
-    marker.setIcon({
-      path: fontawesome.markers.CAR,
-      scale: 0.3,
-      strokeWeight: 0.2,
-      strokeColor: 'black',
-      strokeOpacity: 1,
-      fillColor: carListingView.model.get("car_color"),
-      fillOpacity: 0.8,
-    });
+
+    marker.setIcon(this.inactiveMarker);
   },
 
   closeInfoWindows: function () {

@@ -24,7 +24,9 @@ Carbnd.Views.RequestForm = Backbone.CompositeView.extend({
         that.$("input[type=submit]").css("color", "green");
       },
       error : function (model, resp) {
-        that.addFlashMessage(resp.responseJSON, "alert-danger");
+        if (request.status === 401) {
+          that.addFlashMessage(resp.responseJSON, "alert-danger");
+        }
       }
     });
   },
@@ -40,7 +42,7 @@ Carbnd.Views.RequestForm = Backbone.CompositeView.extend({
   render: function () {
     var renderedContent = this.template();
     this.$el.html(renderedContent);
-    
+
     return this;
   }
 });

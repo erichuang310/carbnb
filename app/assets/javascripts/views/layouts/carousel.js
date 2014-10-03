@@ -6,6 +6,9 @@ Carbnd.Views.LayoutsCarousel = Backbone.CompositeView.extend({
       carListing: this.model
     })
     this.$el.html(renderedContent);
+    $('.carousel').carousel({
+      interval: false
+    })
 
     return this;
   }

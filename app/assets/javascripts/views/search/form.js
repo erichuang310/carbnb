@@ -17,18 +17,27 @@ Carbnd.Views.SearchForm = Backbone.CompositeView.extend({
     PubSub.publish('carListings query params updated', this);
   },
 
+  initDatePickers: function () {
+    setTimeout( function () {
+      $startDatePicker = $('input[name="start_date"]').datepicker({
+        startDate: new Date(),
+        autoclose: true
+      });
+      $endDatePicker = $('input[name="end_date"]').datepicker({
+        startDate: new Date(),
+        autoclose: true
+      });
+      $startDatePicker.on("changeDate", function (e) {
+        $endDatePicker.datepicker("setStartDate", $startDatePicker.datepicker("getDate"))
+      });
+    }, 0);
+  },
+
   render: function () {
     var renderedContent = this.template();
     this.$el.html(renderedContent);
     this.attachSubviews();
-    setTimeout(function () {
-      this.$('.date-picker').datepicker({
-        startDate: new Date(),
-        autoclose: true
-      });
-      this.$('#address').geocomplete();
-    }, 0);
-
+    this.initDatePickers();
     return this;
   }
 });

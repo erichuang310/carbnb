@@ -31,18 +31,26 @@ Carbnd.Views.HomeSearchForm = Backbone.CompositeView.extend({
     });
   },
 
-  render: function () {
-    var renderedContent = this.template();
-    this.$el.html(renderedContent);
-
-    setTimeout(function () {
-      this.$('.date-picker').datepicker({
+  initDatePickers: function () {
+    setTimeout( function () {
+      $startDatePicker = this.$('input[name="start_date"]').datepicker({
         startDate: new Date(),
         autoclose: true
       });
-      this.$('#address').geocomplete();
+      $endDatePicker = this.$('input[name="end_date"]').datepicker({
+        startDate: new Date(),
+        autoclose: true
+      });
+      $startDatePicker.on("changeDate", function (e) {
+        $endDatePicker.datepicker("setStartDate", $startDatePicker.datepicker("getDate"))
+      });
     }, 0);
+  },
 
+  render: function () {
+    var renderedContent = this.template();
+    this.$el.html(renderedContent);
+    this.initDatePickers();
 
     return this;
   }

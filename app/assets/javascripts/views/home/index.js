@@ -53,7 +53,6 @@ Carbnd.Views.HomeIndex = Backbone.CompositeView.extend({
         $header.css({ backgroundPosition: coords });
       }
       if (windowScrollTop + windowHeight > $footer.offset().top) {
-        console.log("footer");
         var yPos = -(windowScrollTop / footerSpeed + 220);
         var coords = '50% '+ yPos + 'px';
         $footer.css({ backgroundPosition: coords });
@@ -66,6 +65,11 @@ Carbnd.Views.HomeIndex = Backbone.CompositeView.extend({
     this.$el.html(renderedContent);
     this.attachSubviews();
     this.initParallax();
+
+
+    setTimeout( function () {
+      $("input[name=address]").geocomplete();
+    }, 0);
 
     return this;
   }

@@ -62,6 +62,7 @@ Carbnd.Views.CarListingsIndex = Backbone.CompositeView.extend({
         return subview.model === carListing;
       }
     );
+    PubSub.publish('remove-car-listing', carListing);
     this.removeSubview("#car-listings", subview);
   },
 

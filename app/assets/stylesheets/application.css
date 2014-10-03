@@ -100,10 +100,6 @@ header#car-listing-header {
 .car-listing-description {
   padding: 10px;
 }
-.car-listing-mouseover {
-  /*border: 1px solid darkGrey;*/
-  opacity: 0.95;
-}
 .car-listing-mouseover:hover {
   opacity: 1.0;
 }
@@ -135,6 +131,10 @@ header#car-listing-header {
 }
 
 /* General */
+a:hover {
+  text-decoration: none;
+}
+
 html, body {
   height: 100%;
 }
@@ -288,6 +288,20 @@ footer ul li {
 .car-listing-item .car-listing-mouseover {
   border: 1px solid grey;
 }
+.car-listing-item .car-listing-mouseover:hover {
+  background-color: white;
+  /*color: black; */
+  /*z-index: 5px;*/
+  /*-webkit-box-shadow:inset 0px 1px 1px 2px grey;*/
+  /*-moz-box-shadow:inset 0px 0px 0px 2px grey;*/
+  /*box-shadow:inset 0px 0px 0px 1px black;*/
+
+    /*border: 2px solid black;*/
+
+
+}
+
+
 
 a.car-listing-link {
   color: #565a5c;
