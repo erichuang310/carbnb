@@ -9,16 +9,20 @@ Carbnd.Views.CarListingsIndex = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "add", this.addCarListing);
     this.listenTo(this.collection, "remove", this.removeCarListing);
     this.listenTo(this.collection, "sync", this.handleSpinner);
-    var token = PubSub.subscribe( 'carListings query params updated', this.updateCarListings );
-    var that = this;
-    this.collection.each(function (carListing) {
-      that.addCarListing(carListing);
-    });
-  },
+    PubSub.subscribe( 'updated-car-listings-params', this.updateCarListings );
 
+    this.collection.each(function (carListing) {
+      this.addCarListing(carListing);
+    }.bind(this));
+  },
 
   updateCarListings: function () {
     Carbnd.carListings.fetch({ data: Carbnd.searchParams })
+  },
+
+  addNavbar: function () {
+    var navbarView = new Carbnd.Views.LayoutsNavbar();
+    this.addSubview("#nav", navbarView);
   },
 
   handleSpinner: function () {
@@ -27,11 +31,6 @@ Carbnd.Views.CarListingsIndex = Backbone.CompositeView.extend({
     } else {
       this.$spinner.show();
     }
-  },
-
-  addNavbar: function () {
-    var navbarView = new Carbnd.Views.LayoutsNavbar();
-    this.addSubview("#nav", navbarView);
   },
 
   addMap: function () {
@@ -58,7 +57,7 @@ Carbnd.Views.CarListingsIndex = Backbone.CompositeView.extend({
   addCarListing: function (carListing) {
     var carListingView = new Carbnd.Views.CarListingItem({ model: carListing });
     this.addSubview("#car-listings", carListingView);
-    PubSub.publish('car-listings', carListingView);
+    PubSub.publish('add-car-listing', carListingView);
   },
 
   removeCarListing: function (carListing) {

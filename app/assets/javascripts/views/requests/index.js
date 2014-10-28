@@ -28,16 +28,10 @@ Carbnd.Views.RequestsIndex = Backbone.CompositeView.extend({
   // },
 
   render: function () {
-    var renderedContent = this.template();
+    var renderedContent = this.template({
+      numOfRequests: this.collection.length
+    });
     this.$el.html(renderedContent);
-    // this.attachSubviews;
-    if (this.collection.length > 1) {
-      var req = " requests"
-    } else {
-      var req = " request"
-    }
-
-    this.$("#requests li").html("You have " + this.collection.length + req);
 
     return this;
   }

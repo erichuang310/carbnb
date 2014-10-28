@@ -4,8 +4,12 @@
   </li>
 
   <div id="requests">
-    <li class="list-group-item" id="new-request-title">
-      You have 0 requests
+    <li class="list-group-item">
+      <% if (numOfRequests === 1) { %>
+        You have <%= numOfRequests %> request
+      <% } else { %>
+        You have <%= numOfRequests %> requests
+      <% } %>
     </li>
   </div>
 </ul>

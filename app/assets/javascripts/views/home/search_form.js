@@ -22,10 +22,11 @@ Carbnd.Views.HomeSearchForm = Backbone.CompositeView.extend({
       if (status == google.maps.GeocoderStatus.OK) {
         Carbnd.searchParams.lat = results[0].geometry.location.lat();
         Carbnd.searchParams.lng = results[0].geometry.location.lng();
-        Carbnd.searchParams.left_border = results[0].geometry.bounds.getSouthWest().lng()
-        Carbnd.searchParams.right_border = results[0].geometry.bounds.getNorthEast().lng()
-        Carbnd.searchParams.top_border = results[0].geometry.bounds.getNorthEast().lat()
-        Carbnd.searchParams.bottom_border = results[0].geometry.bounds.getSouthWest().lat()
+        Carbnd.searchParams.sw_lng = results[0].geometry.bounds.getSouthWest().lng()
+        Carbnd.searchParams.ne_lng = results[0].geometry.bounds.getNorthEast().lng()
+        Carbnd.searchParams.ne_lat = results[0].geometry.bounds.getNorthEast().lat()
+        Carbnd.searchParams.sw_lat = results[0].geometry.bounds.getSouthWest().lat()
+
         callback();
       }
     });
@@ -47,10 +48,26 @@ Carbnd.Views.HomeSearchForm = Backbone.CompositeView.extend({
     }, 0);
   },
 
+  initPopover: function () {
+    this.$("#address")
+          .popover({
+            title: 'Pro Tip',
+            content: "Fake listings only exists in SF.",
+            placement: "top"
+          })
+          .blur(function () {
+              $(this).popover('hide');
+          });
+  },
+
+
   render: function () {
     var renderedContent = this.template();
     this.$el.html(renderedContent);
-    this.initDatePickers();
+    setTimeout( function () {
+      this.initDatePickers();
+      this.initPopover();
+    }.bind(this), 0)
 
     return this;
   }

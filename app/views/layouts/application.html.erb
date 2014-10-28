@@ -35,7 +35,6 @@
     Carbnd.currentUser = new Carbnd.Models.User();
   <% end %>
 
-
   $( document ).ajaxError(function( event, request, settings ) {
     if (request.status === 401) {
       Carbnd.loginModalView.addFlashErrors(request.responseJSON);
