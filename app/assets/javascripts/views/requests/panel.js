@@ -13,6 +13,11 @@ Carbnd.Views.RequestPanel = Backbone.CompositeView.extend({
       success: function (model, resp) {
       },
       error: function (model, resp) {
+        debugger;
+        var errorView = new Carbnd.Views.LayoutsFlashMessage({
+          message: "",
+          flashClass: ""
+        });
       }
     });
   },

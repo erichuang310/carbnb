@@ -23,10 +23,10 @@ class Request < ActiveRecord::Base
             presence: true
   #
 
-  validates :start_date,
-            date: { after_or_equal_to: Proc.new { Time.now }, message: 'is in the past' }
-  validates :end_date,
-            date: { after_or_equal_to: :start_date, message: 'is before start date'  }
+  # validates :start_date,
+            # date: { after_or_equal_to: Proc.new { Time.now }, message: 'is in the past' }
+  # validates :end_date,
+            # date: { after_or_equal_to: :start_date, message: 'is before start date'  }
 
   validate :does_not_overlap_approved_request
 
